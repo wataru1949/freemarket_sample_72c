@@ -21,6 +21,7 @@ has_one :addresses
 has_one :credit
 has_many :items
 
+
 ## addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -35,12 +36,14 @@ has_many :items
 belongs_to :users
 belongs_to :prefecture
 
+
 ## prefecturesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |text|string|null: false|
 ### Association
 has_many :address
+
 
 ## creditsテーブル
 |Column|Type|Options|
@@ -52,6 +55,7 @@ has_many :address
 |user_id|reference|null: false, foreign_key: true|
 ### Association
 belongs_to :users
+
 
 ## itemsテーブル
 |Column|Type|Options|
@@ -78,6 +82,7 @@ belongs_to :shipping_dates
 belongs_to :shipping_methods
 belongs_to :users
 
+
 ## item_imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -85,6 +90,7 @@ belongs_to :users
 |item_id|reference|null: false,foreign_key: true|
 ### Association
 belong_to :items
+
 
 ## categoriesテーブル
 |Column|Type|Options|
@@ -94,12 +100,14 @@ belong_to :items
 ### Association
 has_many :items
 
+
 ## brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|
 ### Association
 has_many :items
+
 
 ## conditionsテーブル
 |Column|Type|Options|
@@ -108,6 +116,7 @@ has_many :items
 ### Association
 has_many :items
 
+
 ## shipping_costsテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -115,12 +124,14 @@ has_many :items
 ### Association
 has_many :items
 
+
 ## shipping_datesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |select|string|null: false|
 ### Association
 has_many :items
+
 
 ## shipping_methodsテーブル
 |Column|Type|Options|
