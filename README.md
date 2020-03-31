@@ -19,8 +19,8 @@
 ### Association
 has_one :addresses
 has_one :credit
-has_many :items  
-
+has_many :items
+</br>
 
 ## addressesテーブル
 |Column|Type|Options|
@@ -34,16 +34,16 @@ has_many :items
 |prefecture_id|reference|null: false, foreign_key: true|
 ### Association
 belongs_to :users
-belongs_to :prefecture  
-
+belongs_to :prefecture
+</br>
 
 ## prefecturesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |text|string|null: false|
 ### Association
-has_many :address  
-
+has_many :address
+</br>
 
 ## creditsテーブル
 |Column|Type|Options|
@@ -54,8 +54,8 @@ has_many :address
 |code|integer|null: false|
 |user_id|reference|null: false, foreign_key: true|
 ### Association
-belongs_to :users  
-
+belongs_to :users
+</br>
 
 ## itemsテーブル
 |Column|Type|Options|
@@ -80,8 +80,8 @@ belongs_to :conditions
 belongs_to :shipping_costs
 belongs_to :shipping_dates
 belongs_to :shipping_methods
-belongs_to :users  
-
+belongs_to :users
+</br>
 
 ## item_imagesテーブル
 |Column|Type|Options|
@@ -89,8 +89,8 @@ belongs_to :users
 |image|string|null: false|
 |item_id|reference|null: false,foreign_key: true|
 ### Association
-belong_to :items  
-
+belong_to :items
+</br>
 
 ## categoriesテーブル
 |Column|Type|Options|
@@ -98,44 +98,44 @@ belong_to :items
 |name|string|null: false|
 |ancestry|string||
 ### Association
-has_many :items  
-
+has_many :items
+</br>
 
 ## brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|
 ### Association
-has_many :items  
-
+has_many :items
+</br>
 
 ## conditionsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |select|string|null: false|
 ### Association
-has_many :items  
-
+has_many :items
+</br>
 
 ## shipping_costsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |select|string|null: false|
 ### Association
-has_many :items  
-
+has_many :items
+</br>
 
 ## shipping_datesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |select|string|null: false|
 ### Association
-has_many :items  
-
+has_many :items
+</br>
 
 ## shipping_methodsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |select|string|null: false|
 ### Association
-has_many :items  
+has_many :items
