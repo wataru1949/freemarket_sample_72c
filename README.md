@@ -3,7 +3,7 @@
 # DB設計
 
 ## ER図
-![image](https://user-images.githubusercontent.com/53987306/77992980-21d7c700-7362-11ea-8257-782e6803a381.png)
+![image](https://user-images.githubusercontent.com/53987306/78009231-abe05980-737b-11ea-8d23-a8f3262d5570.png)
 
 ## usersテーブル
 |Column|Type|Options|
@@ -17,7 +17,7 @@
 |first_name_kana|string|null: false|
 |birthday|date|null: false|
 ### Association
-has_one :addresses  
+has_one :address  
 has_one :credit  
 has_many :items  
 </br>
@@ -25,24 +25,15 @@ has_many :items
 ## addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|postal_code|string|
+|postal_code|string||
+|prefecture|string||
 |city|string||
 |street|string||
 |building|string||
 |phone|string|null: false|
 |user_id|reference|null: false, foreign_key: true|
-|prefecture_id|reference|null: false, foreign_key: true|
 ### Association
-belongs_to :users  
-belongs_to :prefecture  
-</br>
-
-## prefecturesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|text|string|null: false|
-### Association
-has_many :address  
+belongs_to :user  
 </br>
 
 ## creditsテーブル
@@ -54,7 +45,7 @@ has_many :address
 |code|integer|null: false|
 |user_id|reference|null: false, foreign_key: true|
 ### Association
-belongs_to :users  
+belongs_to :user  
 </br>
 
 ## itemsテーブル
@@ -65,7 +56,7 @@ belongs_to :users
 |price|integer|null: false|
 |state|integer|null: false, default: 0|
 |category_id|reference|null: false, foreign_key: true|
-|bland_id|reference|foreign_key: true|
+|brand_id|reference|foreign_key: true|
 |condition_id|reference|null: false, foreign_key: true|
 |shipping_cost_id|reference|null: false, foreign_key: true|
 |shipping_date_id|reference|null: false, foreign_key: true|
@@ -73,14 +64,14 @@ belongs_to :users
 |seller_id|reference|null: false, foreign_key: true|
 |buyer_id|reference|null: false, foreign_key: true|
 ### Association
-belongs_to :item_images  
-belongs_to :categories  
-belongs_to :brands  
-belongs_to :conditions  
-belongs_to :shipping_costs  
-belongs_to :shipping_dates  
-belongs_to :shipping_methods  
-belongs_to :users  
+has_many :item_images  
+belongs_to :category  
+belongs_to :brand  
+belongs_to :condition  
+belongs_to :shipping_cost  
+belongs_to :shipping_date  
+belongs_to :shipping_method  
+belongs_to :user  
 </br>
 
 ## item_imagesテーブル
@@ -89,7 +80,7 @@ belongs_to :users
 |image|string|null: false|
 |item_id|reference|null: false,foreign_key: true|
 ### Association
-belong_to :items  
+belong_to :item  
 </br>
 
 ## categoriesテーブル
