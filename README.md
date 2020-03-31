@@ -19,7 +19,7 @@
 ### Association
 has_one :addresses
 has_one :credit
-has_many :items
+has_many :items  
 
 
 ## addressesテーブル
@@ -34,7 +34,7 @@ has_many :items
 |prefecture_id|reference|null: false, foreign_key: true|
 ### Association
 belongs_to :users
-belongs_to :prefecture
+belongs_to :prefecture  
 
 
 ## prefecturesテーブル
@@ -42,7 +42,7 @@ belongs_to :prefecture
 |------|----|-------|
 |text|string|null: false|
 ### Association
-has_many :address
+has_many :address  
 
 
 ## creditsテーブル
@@ -54,7 +54,7 @@ has_many :address
 |code|integer|null: false|
 |user_id|reference|null: false, foreign_key: true|
 ### Association
-belongs_to :users
+belongs_to :users  
 
 
 ## itemsテーブル
@@ -80,7 +80,7 @@ belongs_to :conditions
 belongs_to :shipping_costs
 belongs_to :shipping_dates
 belongs_to :shipping_methods
-belongs_to :users
+belongs_to :users  
 
 
 ## item_imagesテーブル
@@ -89,7 +89,7 @@ belongs_to :users
 |image|string|null: false|
 |item_id|reference|null: false,foreign_key: true|
 ### Association
-belong_to :items
+belong_to :items  
 
 
 ## categoriesテーブル
@@ -98,7 +98,7 @@ belong_to :items
 |name|string|null: false|
 |ancestry|string||
 ### Association
-has_many :items
+has_many :items  
 
 
 ## brandsテーブル
@@ -106,7 +106,7 @@ has_many :items
 |------|----|-------|
 |name|string|
 ### Association
-has_many :items
+has_many :items  
 
 
 ## conditionsテーブル
@@ -114,7 +114,7 @@ has_many :items
 |------|----|-------|
 |select|string|null: false|
 ### Association
-has_many :items
+has_many :items  
 
 
 ## shipping_costsテーブル
@@ -122,7 +122,7 @@ has_many :items
 |------|----|-------|
 |select|string|null: false|
 ### Association
-has_many :items
+has_many :items  
 
 
 ## shipping_datesテーブル
@@ -130,7 +130,7 @@ has_many :items
 |------|----|-------|
 |select|string|null: false|
 ### Association
-has_many :items
+has_many :items  
 
 
 ## shipping_methodsテーブル
@@ -138,4 +138,4 @@ has_many :items
 |------|----|-------|
 |select|string|null: false|
 ### Association
-has_many :items
+has_many :items  
