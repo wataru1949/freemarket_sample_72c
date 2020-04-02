@@ -1,0 +1,72 @@
+.show-item {
+  width:100%;
+  height:1856px;
+  background-color: rgb(206, 204, 204);
+  &_main {
+    background-color:rgb(177, 177, 241);
+    width: 700px;
+    height: 1362px;
+    margin: auto;
+    text-align: center;
+    &_name {
+      margin: auto;
+      width: 628px;
+      height: 28px;
+      background-color:rgb(208, 240, 208);
+    }
+    &_img {
+      margin: auto;
+      width: 620px;
+      height: 443px;
+      &_main {
+        margin: auto;
+        width: 560px;
+        height: 346px;
+        background-color: greenyellow;
+      }
+      &_sub {
+        margin: auto;
+        width: 420px;
+        height: 87px;
+        display: flex;
+        &_content {
+          width: 140px;
+          height:87px;
+          background-color: khaki;
+        }
+      }
+    }
+    &_price {
+      margin: auto;
+      width: 620px;
+      height:77px;
+      background-color:rgb(247, 204, 211);
+      &_value {
+        width: 610px;
+        height:53px;
+      }
+      &_cost {
+        width: 620px;
+        height:24px;
+      }
+    }
+    &_message {
+      margin: auto;
+      width: 620px;
+      height:162px;
+      background-color: lightblue;
+    }
+    &_detail {
+      margin: auto;
+      width: 620px;
+      height:426px;
+      background-color: lightcoral;
+    }
+    &_option {
+      margin: auto;
+      height:48px;
+      background-color: lightsalmon;
+    }
+  }
+}
+
