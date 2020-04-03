@@ -27,6 +27,27 @@
         top: 300px;
         left: 60px;
     }
+    &__inner_icon {
+      display: flex;
+      margin: 20px auto 0;
+      justify-content: center;
+      position: absolute;
+        top: 360px;
+        left: 55px;
+      &__app:hover img {
+        opacity: 0.5;
+        filter: alpha(opacity=50);
+        -ms-filter: "icon(opacity=50)";
+      }
+      &__google {
+        padding-left: 15px;
+      }
+      &__google:hover img {
+        opacity: 0.5;
+        filter: alpha(opacity=50);
+        -ms-filter: "icon(opacity=50)";
+      }
+    }
   }
   
   .introduction {
@@ -131,6 +152,27 @@
       position: absolute;
         top: 150px;
         left: 250px;
+    }
+    &__inner_icon {
+      display: flex;
+      margin: 20px auto 0;
+      justify-content: center;
+      position: absolute;
+        top: 240px;
+        left: 240px;
+      &__app:hover img {
+        opacity: 0.5;
+        filter: alpha(opacity=50);
+        -ms-filter: "icon(opacity=50)";
+      }
+      &__google {
+        padding-left: 15px;
+      }
+      &__google:hover img {
+        opacity: 0.5;
+        filter: alpha(opacity=50);
+        -ms-filter: "icon(opacity=50)";
+      }
     }
   }
  
@@ -268,6 +310,28 @@
       position: absolute;
         top: 130px;
         left: 550px;
+    }
+    
+    &__inner_icon {
+      display: flex;
+      margin: 20px auto 0;
+      justify-content: center;
+      position: absolute;
+        top: 190px;
+        left: 545px;
+      &__app:hover img {
+        opacity: 0.5;
+        filter: alpha(opacity=50);
+        -ms-filter: "icon(opacity=50)";
+      }
+      &__google {
+        padding-left: 15px;
+      }
+      &__google:hover img {
+        opacity: 0.5;
+        filter: alpha(opacity=50);
+        -ms-filter: "icon(opacity=50)";
+      }
     }
   }
   

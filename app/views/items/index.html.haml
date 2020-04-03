@@ -1,5 +1,6 @@
 .header
-
+  =render 'share/header'
+  
 .main
   .main__top-banner
     .main__top-banner__title-man
@@ -8,6 +9,12 @@
       FURIMAはだれでもかんたんに出品・購入できる
       %br
       フリマアプリです
+    .main__top-banner__inner_icon
+      .main__top-banner__inner_icon__app
+        = image_tag "app-store-badge.svg", width: "170px"
+      .main__top-banner__inner_icon__google
+        = image_tag "google-play-badge.svg", width: "190px"
+
   .main__introduction
     .introduction__reason-for-chose
       FURIMAが選ばれる3つの理由
@@ -50,6 +57,11 @@
       出品・購入回数も業界最多です！
       %br
       ほしかったあの商品に出会えるかもしれません。
+    .main__middle-banner__inner_icon
+      .main__middle-banner__inner_icon__app
+        = image_tag "app-store-badge.svg", width: "170px"
+      .main__middle-banner__inner_icon__google
+        = image_tag "google-play-badge.svg", width: "190px"
 
   .main__feature
     .main__feature__title
@@ -164,6 +176,14 @@
       だれでもかんたん、人生を変えるフリマアプリ
     .main__bottom-banner__text-man
       今すぐ無料ダウンロード
+    .main__bottom-banner__inner_icon
+      .main__bottom-banner__inner_icon__app
+        = image_tag "app-store-badge.svg", width: "170px"
+      .main__bottom-banner__inner_icon__google
+        = image_tag "google-play-badge.svg", width: "190px"
 
 .footer
-  
+  =render 'share/footer'
+
+.exhibit-btn
+  =render 'share/exhibit-btn'
