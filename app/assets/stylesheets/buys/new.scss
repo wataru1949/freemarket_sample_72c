@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 html {
   background-color: rgb(245, 245, 245);
 }
@@ -10,14 +14,6 @@ a {
   }
 }
 
-.buy-top {
-  height: 80px;
-  padding-top: 35px;
-  &_image {
-    width: 170px;
-    margin: auto;
-  }
-}
 .buy-content {
   background-color: white;
   max-width: 635px;
