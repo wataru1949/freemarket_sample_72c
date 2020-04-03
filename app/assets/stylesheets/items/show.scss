@@ -1,71 +1,146 @@
+* {
+  box-sizing: border-box;
+}
+
 .show-item {
   width:100%;
-  height:1856px;
-  background-color: rgb(206, 204, 204);
+  height:1800px;
+  background-color: rgb(245, 245, 245);
+  &_nav {
+    padding-top: 9px;
+    padding-left: 100px;
+    height: 50px;
+    background-color: white;
+    border-top: solid 1px rgb(235, 235, 235);
+    border-bottom: solid 3px rgb(235, 235, 235);
+    margin-bottom: 30px;
+  }
   &_main {
-    background-color:rgb(177, 177, 241);
-    width: 700px;
-    height: 1362px;
     margin: auto;
-    text-align: center;
+    background-color: white;
+    width: 700px;
+    height: 1200px;
+    padding: 24px 40px 40px;
     &_name {
+      font-weight: bold;
+      font-size: 24px;
       margin: auto;
-      width: 628px;
       height: 28px;
-      background-color:rgb(208, 240, 208);
+      text-align: center;
     }
     &_img {
-      margin: auto;
-      width: 620px;
+      margin: 16px 0 0;
       height: 443px;
       &_main {
         margin: auto;
         width: 560px;
         height: 346px;
-        background-color: greenyellow;
+        overflow: hidden;
+        position: relative;
+        .item-image {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+        }
       }
       &_sub {
-        margin: auto;
+        margin: 10px auto;
         width: 420px;
         height: 87px;
         display: flex;
+        overflow: hidden;
         &_content {
+          margin: 0 5px;
           width: 140px;
           height:87px;
-          background-color: khaki;
+          position: relative;
+          .item-image {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+          }
         }
       }
     }
     &_price {
-      margin: auto;
-      width: 620px;
+      margin: 24px 0 24px 0;
       height:77px;
-      background-color:rgb(247, 204, 211);
+      text-align: center;
       &_value {
-        width: 610px;
         height:53px;
+        font-size: 46px;
+        font-weight: bold;
+        margin-bottom: 10px;
       }
       &_cost {
-        width: 620px;
         height:24px;
+        font-size: 16px;
       }
     }
     &_message {
       margin: auto;
-      width: 620px;
-      height:162px;
-      background-color: lightblue;
+      margin-bottom: 30px;
+      //background-color: lightblue;
     }
     &_detail {
-      margin: auto;
-      width: 620px;
-      height:426px;
-      background-color: lightcoral;
+      //background-color: lightcoral;
+      &_box {
+        width: 700px;
+        display: flex;
+        font-size: 13px;
+        &_header {
+          th {
+            height:50px;
+            width: 140px;
+            border: solid 1px #dedede;
+            background-color: #eee;
+            text-align: center;
+          }
+        }
+        &_data {
+          td {
+            height:50px;
+            width: 460px;
+            border: solid 1px #dedede;
+            text-align: left;
+            padding: 0 20px;
+          }
+        }
+      }
     }
-    &_option {
-      margin: auto;
-      height:48px;
-      background-color: lightsalmon;
+  }
+  &_comment {
+    background-color: white;
+    margin: 0 auto;
+    width: 700px;
+    height: 300px;
+    padding: 24px 40px ;
+    &_form {
+      lavel {
+        margin-top: 10px;
+      }
+      textarea {
+        width: 100%;
+        height: 100px;
+        margin-bottom: 10px;
+      }
+    }
+    &_notice {
+      font-size: 13px;
+      width: 100%;
+      background-color: #f8f8f8;
+      margin-bottom: 30px;
+    }
+    &_btn {
+      text-align: center;
+      a {
+        padding: 1em 6em;
+        border: 1px solid #3CCACE;
+        border-radius: 5em;
+        background-color: #3CCACE;
+        color:white;
+        text-decoration: none;
+      }
     }
   }
 }
