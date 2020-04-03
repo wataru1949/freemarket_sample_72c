@@ -1,0 +1,25 @@
+.header-area
+  .header-area_top
+    .header-area_top_icon
+      = image_tag 'logo/logo.png', height: '100%'
+    .header-area_top_search
+      .header-area_top_search_form
+        = 'キーワードから探す'
+      .header-area_top_search_btn
+        .header-area_top_search_btn_icon
+          = image_tag 'icon/icon-search 1.png', height: '100%'
+  .header-area_bottom
+    .header-area_bottom_select
+      .header-area_bottom_select_category
+        = link_to '' do
+          = 'カテゴリー'
+      .header-area_bottom_select_brand
+        = link_to '' do
+          = 'ブランド'
+    .header-area_bottom_user
+      .header-area_bottom_user_login
+        = link_to '' do
+          = 'ログイン'
+      .header-area_bottom_user_new
+        = link_to '' do
+          = '新規会員登録'
