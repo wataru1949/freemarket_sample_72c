@@ -1,0 +1,42 @@
+.download-banner {
+  width: 100vw;
+  background-image: url(pict/bg-appBanner-pict.jpg);
+  padding: 100px 40px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  .inner {
+    color: #fff;
+    text-align: center;
+    &_title {
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 1.4;
+    }
+    &_text {
+      font-size: 35px;
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+    }
+    &_icon {
+      display: flex;
+      margin: 20px auto 0;
+      justify-content: center;
+      &_app {
+      }
+      &_app:hover img {
+        opacity: 0.5;
+        filter: alpha(opacity=50);
+        -ms-filter: "icon(opacity=50)";
+      }
+      &_google {
+        padding-left: 15px;
+      }
+      &_google:hover img {
+        opacity: 0.5;
+        filter: alpha(opacity=50);
+        -ms-filter: "icon(opacity=50)";
+      }
+    }
+  }
+}
