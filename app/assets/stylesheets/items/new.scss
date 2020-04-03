@@ -1,0 +1,223 @@
+* {  
+  box-sizing: border-box;
+}
+html {
+  background-color: rgb(245, 245, 245);
+}
+
+.form-title {
+  height: 19px;
+  min-width: 120px;
+  .box-form-explanaion {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4em;
+  }
+  .indispensable {
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 2px 4px;
+    margin-left: 8px;
+    border-radius: 2px;
+  }
+  .indispensable_optional {
+    background-color: rgb(175, 175, 175);
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 2px 4px;
+    margin-left: 8px;
+    border-radius: 2px;
+  }
+}
+.exhibit-form-field {
+  height: 48px;
+  margin-top: 16px;
+  border: solid 1px rgb(215, 215, 215);
+  border-radius: 4px
+}
+
+.box_form {
+  margin-top: 32px;
+}
+
+.container-title {
+  height: 19px;
+  margin-bottom: 24px;
+  color: rgb(100, 100, 100);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.exhibit-form {
+  background-color: white;
+  margin: 0 auto 220px;
+  max-width: 700px;
+  height: 2206px;
+
+  .image-container {
+    padding: 40px;
+    border-bottom: solid 1px rgb(235, 235, 235);
+    &_box {
+      &_message {
+        height: 19px;
+        margin: 16px 0 15px;
+        font-size: 14px;
+        line-height: 1.4em;
+      }
+      .image-uplord-field {
+        align-content: center;
+        -webkit-box-align: center;
+        align-items: center;
+        background-color: rgb(245, 245, 245);
+        cursor: pointer;
+        display: flex;
+        height: 150px;
+        -webkit-box-pack: center;
+        justify-content: center;
+        position: relative;
+        border-width: 1px;
+        border-style: dashed;
+        border-color: rgb(204, 204, 204);
+        border-image: initial;
+        &_message {
+          font-size: 12px;
+          line-height: 1.4em;
+          text-align: center;
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .explain-container {
+    height: 416px;
+    padding: 40px;
+    border-bottom: solid 1px rgb(235, 235, 235);
+    &_name-box {
+      height: 83px;
+    } 
+    &_text-box {
+      margin-top: 32px;
+      .exhibit-form-detail {
+        height: 154px;
+        margin-top: 16px;
+        border: solid 1px rgb(215, 215, 215);
+        border-radius: 4px
+      }
+      &_info {
+        color: #888;
+        font-size: 12px;
+        line-height: 1.4em;
+        margin-top: 16px;
+        text-align: right;
+      }
+    }
+  }
+
+  .detail-container {
+    padding: 40px;
+    border-bottom: solid 1px rgb(235, 235, 235);
+  }
+
+  .shipping-container {
+    padding: 40px;
+    border-bottom: solid 1px rgb(235, 235, 235);
+
+  }
+
+  .price-container {
+    height: 602px;
+    padding: 40px 40px 64px;
+    .calculation-box {
+      height: 187px;
+      margin-bottom: 40px;
+      .selling-price-line {
+        height: 58px;
+        padding-bottom: 12px 0;
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        .selling-form-title {
+          min-width: 120px;
+        }
+        .exhibit-form_price {
+          width: 299px;
+          display: flex;
+          align-items: center;
+          .mark {
+            margin-right: 8px;
+          }
+          .exhibit-form_right {
+            height: 48px;
+            width: 100%;
+            border: solid 1px rgb(215, 215, 215);
+            border-radius: 4px
+          }
+        }
+      }
+      .commission-line {
+        height: 70px;
+        padding: 12px 0;
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: solid 1px rgb(235, 235, 235);
+        &_left {
+          height: 14px;
+          font-size: 14px;
+        }
+      }
+      .profit-line {
+        height: 58px;
+        padding-top: 12px 0;
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        &_left {
+          height: 14px;
+          font-size: 14px;
+          vertical-align: baseline;
+        }
+      }
+    }
+    .price-box-btn {
+      width: 360px;
+      margin: 0px auto 24px;
+      .exhibit-btn {
+        height: 48px;
+        background-color: #ea352d;
+        color: white;
+        margin-bottom: 24px;
+        font-size: 17px;
+        border-radius: 4px;
+        font-weight: 600;
+        cursor: pointer;
+        text-align: center;
+        line-height: 48px;
+      }
+      .save-btn {
+        height: 48px;
+        background-color: #bfbfbf;
+        margin-bottom: 24px;
+        font-size: 17px;
+        border-radius: 4px;
+        font-weight: 600;
+        cursor: pointer;
+        text-align: center;
+        line-height: 48px;
+      }
+      .back-btn {
+        height: 20px;
+        width: 100%;
+        color: #0095ee;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+      }
+    }
+  }
+}
