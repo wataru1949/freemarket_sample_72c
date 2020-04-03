@@ -1,0 +1,48 @@
+= render 'share/top-icon'
+
+.buy-content
+  .buy-content_title
+    = '購入内容の確認'
+  .buy-content_item
+    .buy-content_item_image
+      = ''
+    .buy-content_item_detail
+      .buy-content_item_detail_name
+        = 'product1'
+      .buy-content_item_detail_price
+        = '¥10,000 (税込) 送料込み'
+  .buy-content_info
+    .buy-content_info_price
+      .buy-content_info_price_total
+        .buy-content_info_price_total_text
+          = '支払い金額'
+        .buy-content_info_price_total_number
+          = '¥10,000'
+      .buy-content_info_price_point
+        .buy-content_info_price_point_square
+        .buy-content_info_price_point_text
+          = 'ポイントを使用(所持ポイント:P0)'
+    .buy-content_info_pay
+      .buy-content_info_pay_method
+        = '支払い方法'
+      .buy-content_info_pay_register
+        = link_to '' do
+          = '+ 登録してください'
+    .buy-content_info_address
+      .buy-content_info_address_top
+        .buy-content_info_address_top_text
+          = '配送先'
+        .buy-content_info_address_top_change
+          = link_to '' do
+            = '変更する'
+      .buy-content_info_address_bottom
+        .buy-content_info_address_bottom_post
+          = '〒000-0000'
+        .buy-content_info_address_bottom_address
+          = '住所'
+        .buy-content_info_address_bottom_user
+          = '氏名'
+    .buy-content_info_purchase
+      .buy-content_info_purchase_btn
+        = '購入する'
+.buy-bottom
