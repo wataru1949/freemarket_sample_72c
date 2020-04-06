@@ -1,0 +1,124 @@
+= render 'share/top-icon'
+
+.exhibit-form
+  = form_with(model: @item) do |f|
+    .image-container
+      .image-container_box
+        .form-title
+          %span.box-form-explanaion
+            商品画像
+          %span.indispensable
+            必須
+        %p.image-container_box_message
+          最大10枚までアップロードできます
+        .image-uplord-field
+          %p.image-uplord-field_message
+            ドラッグアンドドロップ
+            %br
+            またはクリックしてファイルをアップロード
+    .explain-container
+      .explain-container_name-box
+        .form-title
+          %span.box-form-explanaion
+            商品名
+          %span.indispensable
+            必須
+        .exhibit-form-field
+      .explain-container_text-box
+        .form-title
+          %span.box-form-explanaion
+            商品の説明
+          %span.indispensable
+            必須
+        .exhibit-form-detail
+        .explain-container_text-box_info
+          0/1000
+
+    .detail-container
+      %p.container-title 商品の詳細
+      .box_form
+        .form-title
+          %span.box-form-explanaion
+            カテゴリー
+          %span.indispensable
+            必須
+        .exhibit-form-field
+      .box_form
+        .form-title
+          %span.box-form-explanaion
+            ブランド
+          %span.indispensable_optional
+            任意
+        .exhibit-form-field
+      .box_form
+        .form-title
+          %span.box-form-explanaion
+            商品の状態
+          %span.indispensable
+            必須
+        .exhibit-form-field
+
+    .shipping-container
+      %p.container-title 配送について
+      .box_form
+        .form-title
+          %span.box-form-explanaion
+            配送料の負担
+          %span.indispensable
+            必須
+        .exhibit-form-field
+        .form-title
+          %span.box-form-explanaion
+            配送の方法
+          %span.indispensable
+            必須
+        .exhibit-form-field
+      .box_form
+        .form-title
+          %span.box-form-explanaion
+            発送元の地域
+          %span.indispensable
+            必須
+        .exhibit-form-field
+      .box_form
+        .form-title
+          %span.box-form-explanaion
+            発送までの日数
+          %span.indispensable
+            必須
+        .exhibit-form-field 
+
+    .price-container
+      %p.container-title 価格 (¥300~9,999,999)
+      .calculation-box
+        .selling-price-line
+          .selling-form-title
+            .form-title
+              %span.box-form-explanaion
+                販売価格
+              %span.indispensable
+                必須
+          .exhibit-form_price
+            %span.mark
+              ¥
+            .exhibit-form_right
+        .commission-line
+          .commission-line_left
+            販売手数料 (10%)
+          .commission-line_right
+            ー
+        .profit-line
+          .profit-line_left
+            販売利益
+          .profit-line_right
+            ー
+      .price-box-btn
+        .price-box-btn_exhibit-btn
+          出品する
+        .price-box-btn_save-btn
+          下書きに保存
+        .price-box-btn_back-btn
+          もどる
+
+
+      %p

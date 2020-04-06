@@ -6,8 +6,7 @@ lock '3.12.1'
 set :application, 'freemarket_sample_72c'
 
 # どのリポジトリからアプリをpullするかを指定する
-set :repo_url,  'git@github.com:wataru1949/freemarket_sample_72c
-.git'
+set :repo_url,  'git@github.com:wataru1949/freemarket_sample_72c.git'
 
 # バージョンが変わっても共通で参照するディレクトリを指定
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
@@ -27,6 +26,7 @@ set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
 set :keep_releases, 5
 
 # デプロイ処理が終わった後、Unicornを再起動するための記述
+
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
   task :restart do
