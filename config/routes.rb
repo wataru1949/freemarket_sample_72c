@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root "items#index"
-  resources :user, only: [:show]
+  resources :users, only: [:show]
   resources :items do
-    resources :buy, only: [:new]
+    resources :buys, only: [:new]
   end
 end
