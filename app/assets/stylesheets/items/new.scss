@@ -186,7 +186,7 @@ html {
     .price-box-btn {
       width: 360px;
       margin: 0px auto 24px;
-      .exhibit-btn {
+      &_exhibit-btn {
         height: 48px;
         background-color: #ea352d;
         color: white;
@@ -198,7 +198,7 @@ html {
         text-align: center;
         line-height: 48px;
       }
-      .save-btn {
+      &_save-btn {
         height: 48px;
         background-color: #bfbfbf;
         margin-bottom: 24px;
@@ -209,7 +209,7 @@ html {
         text-align: center;
         line-height: 48px;
       }
-      .back-btn {
+      &_back-btn {
         height: 20px;
         width: 100%;
         color: #0095ee;
