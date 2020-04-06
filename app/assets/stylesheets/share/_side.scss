@@ -40,9 +40,8 @@ a {
   border: none;
 }
 
-.fa-chevron-right:before {
-  line-height: 55px;
-  content: url(./arrow.png);
+i {
   position: absolute;
   right: 30px;
+  bottom: 22px;
 }

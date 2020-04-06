@@ -48,12 +48,11 @@ li {
     &:hover {
       background-color: #eee;
     }
-    .fa.fa-chevron-right {
-      content: url(./arrow.png);
+    i2 {
       float: right;
       position: absolute;
-      top:35px;
-      right: 10px;
+      top: 38px;
+      right: 40px;
     }
     &_text {
       font-size: 14px;
