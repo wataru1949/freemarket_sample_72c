@@ -7,14 +7,14 @@
       ="product3"
     .show-item_main_img
       .show-item_main_img_main
-        %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", width: '100%', class: 'item-image'}
+        = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", class: 'item-image'
       .show-item_main_img_sub
         .show-item_main_img_sub_content
-          %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", width: '100%', class: 'item-image'}
+          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", class: 'item-image'
         .show-item_main_img_sub_content
-          %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/14/a001.png", width: '100%', class: 'item-image'}
+          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/14/a001.png", class: 'item-image'
         .show-item_main_img_sub_content
-          %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/15/a003.png", width: '100%', class: 'item-image'}
+          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/15/a003.png", class: 'item-image'
     .show-item_main_price
       .show-item_main_price_value
         ¥2,000
@@ -63,13 +63,13 @@
           
   .show-item_comment
     .show-item_comment_form
-      %label{:for => "msg"} 
-      %textarea#msg{:name => "user_message"}
+      %label{for: "msg"}
+      %textarea#msg{name: "user_message"}
     .show-item_comment_notice
       = '相手のことを考え丁寧なコメントを心がけましょう。'
       = '不快な言葉遣いなどは利用制限や退会処分となることがあります。'
     .show-item_comment_btn
-      %a.cta-btn{:href => "#"} コメントする
+      = link_to 'コメントする', "#", class: "cta-btn"
 
 =render "share/exhibit-btn"
 =render "share/download-banner"
