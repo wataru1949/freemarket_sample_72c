@@ -8,7 +8,12 @@ class Item < ApplicationRecord
   validates :price, numericality: { less_than_or_equal_to: 9999999 }
   validates :state, numericality: { greater_than_or_equal_to: 0 }
   validates :state, numericality: { less_than_or_equal_to: 3 }
-
+  
   has_many :item_images
+
   belongs_to_active_hash :prefecture
+  belongs_to_active_hash :condition
+  belongs_to_active_hash :shipping_cost
+  belongs_to_active_hash :shipping_method
+  belongs_to_active_hash :shipping_date
 end
