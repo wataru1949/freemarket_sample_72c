@@ -1,0 +1,38 @@
+%h2 Sign up
+= form_for @address do |f|
+  = render "devise/shared/error_messages", resource: @address
+  
+  .field
+    = f.label :postal_code
+    %br/
+    = f.text_field :postal_code, autofocus: true, autocomplete: "nickname"
+
+  .field
+    = f.label :prefecture_id
+    %br/
+    = f.collection_select :prefecture_id, Prefecture.all, :id, :name, autofocus: true, autocomplete: "nickname"
+
+  .field
+    = f.label :city
+    %br/
+    = f.text_field :city, autofocus: true, autocomplete: "nickname"
+
+  .field
+    = f.label :street
+    %br/
+    = f.text_field :street, autofocus: true, autocomplete: "nickname"
+
+  .field
+    = f.label :building
+    %br/
+    = f.text_field :building, autofocus: true, autocomplete: "nickname"
+
+  .field
+    = f.label :phone
+    %br/
+    = f.date_select :phone, autofocus: true, autocomplete: "nickname"
+
+  .actions
+    = f.submit "Sign up"
+
+= render "devise/shared/links"
