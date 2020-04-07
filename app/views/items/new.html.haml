@@ -11,11 +11,12 @@
             必須
         %p.image-container_box_message
           最大10枚までアップロードできます
-        .image-uplord-field
+        = f.label :image, class: "image-uplord-field" do
           %p.image-uplord-field_message
             ドラッグアンドドロップ
             %br
             またはクリックしてファイルをアップロード
+          = f.file_field :image
     .explain-container
       .explain-container_name-box
         .form-title
@@ -23,14 +24,14 @@
             商品名
           %span.indispensable
             必須
-        .exhibit-form-field
+        = f.text_field :text, placeholder: "40文字まで", maxlength:"40", class: 'exhibit-form-field'
       .explain-container_text-box
         .form-title
           %span.box-form-explanaion
             商品の説明
           %span.indispensable
             必須
-        .exhibit-form-detail
+        = f.text_area :text, maxlength:"1000", class: 'exhibit-form-detail', placeholder: '商品の説明 (必須 1000文字) (色、素材、重さ、定価、注意点など) 例) 2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。'
         .explain-container_text-box_info
           0/1000
 
@@ -49,14 +50,14 @@
             ブランド
           %span.indispensable_optional
             任意
-        .exhibit-form-field
+        = f.text_field :text, class: 'input-text', placeholder: "例) シャネル", maxlength:"40", class: 'exhibit-form-field'
       .box_form
         .form-title
           %span.box-form-explanaion
             商品の状態
           %span.indispensable
             必須
-        .exhibit-form-field
+        = f.collection_select :condition_id, Condition.all, :id, :name, {prompt:"選択してください"}, {class: 'exhibit-form-field'}
 
     .shipping-container
       %p.container-title 配送について
@@ -66,27 +67,28 @@
             配送料の負担
           %span.indispensable
             必須
-        .exhibit-form-field
+        = f.collection_select :shipping_cost_id, ShippingCost.all, :id, :name, {prompt:"選択してください"}, {class: 'exhibit-form-field'}
+      .box_form  
         .form-title
           %span.box-form-explanaion
             配送の方法
           %span.indispensable
             必須
-        .exhibit-form-field
+        = f.collection_select :shipping_method_id, ShippingMethod.all, :id, :name, {prompt:"選択してください"}, {class: 'exhibit-form-field'}
       .box_form
         .form-title
           %span.box-form-explanaion
             発送元の地域
           %span.indispensable
             必須
-        .exhibit-form-field
+        = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt:"選択してください"}, {class: 'exhibit-form-field'}
       .box_form
         .form-title
           %span.box-form-explanaion
             発送までの日数
           %span.indispensable
             必須
-        .exhibit-form-field 
+        = f.collection_select :shipping_date_id, ShippingDate.all, :id, :name, {prompt:"選択してください"}, {class: 'exhibit-form-field'}
 
     .price-container
       %p.container-title 価格 (¥300~9,999,999)
@@ -98,7 +100,8 @@
                 販売価格
               %span.indispensable
                 必須
-          .exhibit-form_price
+          = f.number_field :text, placeholder: "0", min: 0, max: 9999999, class: 'exhibit-form_price'
+          -# .exhibit-form_price
             %span.mark
               ¥
             .exhibit-form_right
@@ -115,10 +118,7 @@
       .price-box-btn
         .price-box-btn_exhibit-btn
           出品する
-        .price-box-btn_save-btn
-          下書きに保存
         .price-box-btn_back-btn
           もどる
 
 
-      %p

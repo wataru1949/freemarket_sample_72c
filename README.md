@@ -26,7 +26,7 @@ has_many :items
 |Column|Type|Options|
 |------|----|-------|
 |postal_code|string||
-|prefecture|string||
+|prefecture_id|string||
 |city|string||
 |street|string||
 |building|string||
