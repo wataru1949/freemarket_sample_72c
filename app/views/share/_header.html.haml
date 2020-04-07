@@ -1,7 +1,8 @@
 .header-area
   .header-area_top
     .header-area_top_icon
-      = image_tag 'logo/logo.png', height: '100%'
+      = link_to root_path do
+        = image_tag 'logo/logo.png', height: '100%'
     .header-area_top_search
       .header-area_top_search_form
         = 'キーワードから探す'
@@ -18,8 +19,12 @@
           = 'ブランド'
     .header-area_bottom_user
       .header-area_bottom_user_login
-        = link_to '' do
-          = 'ログイン'
+        - if user_signed_in?
+          = link_to 'ログアウト', destroy_user_session_path, method: :delete
+        - else
+          = link_to 'ログイン', user_session_path
       .header-area_bottom_user_new
-        = link_to '' do
-          = '新規会員登録'
+        - if user_signed_in?
+          = link_to 'マイページ', user_path(current_user)
+        - else
+          = link_to '新規会員登録', new_user_registration_path

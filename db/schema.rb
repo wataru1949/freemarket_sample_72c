@@ -10,17 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_06_085935) do
+
+ActiveRecord::Schema.define(version: 2020_04_07_033222) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "prefecture_id"
-    t.string "city"
-    t.string "street"
+    t.string "postal_code", null: false
+    t.integer "prefecture_id", null: false
+    t.string "city", null: false
+    t.string "street", null: false
     t.string "building"
-    t.string "postal_code"
-    t.string "phone", null: false
+    t.string "phone"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
   create_table "item_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -36,12 +39,33 @@ ActiveRecord::Schema.define(version: 2020_04_06_085935) do
     t.integer "price", null: false
     t.integer "state", default: 0, null: false
     t.string "brand"
-    t.string "condition", null: false
-    t.string "shipping_cost", null: false
-    t.string "shipping_id", null: false
-    t.string "shipping_method", null: false
+    t.integer "condition_id", null: false
+    t.integer "shipping_cost_id", null: false
+    t.integer "shipping_date_id", null: false
+    t.integer "shipping_method_id", null: false
+    t.integer "seller_id", null: false
+    t.integer "buyer_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "nickname", null: false
+    t.string "lastname", null: false
+    t.string "firstname", null: false
+    t.string "lastname_kana", null: false
+    t.string "firstname_kana", null: false
+    t.date "birthday", null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  add_foreign_key "addresses", "users"
 end
