@@ -34,6 +34,9 @@ html {
 }
 .exhibit-form-field {
   height: 48px;
+  width: 100%;
+  padding: 0 16px;
+  background-color: white;
   margin-top: 16px;
   border: solid 1px rgb(215, 215, 215);
   border-radius: 4px
@@ -51,6 +54,8 @@ html {
   font-weight: 600;
 }
 
+
+
 .exhibit-form {
   background-color: white;
   margin: 0 auto 220px;
@@ -66,6 +71,9 @@ html {
         margin: 16px 0 15px;
         font-size: 14px;
         line-height: 1.4em;
+      }
+      .input{
+        display: none;
       }
       .image-uplord-field {
         align-content: center;
@@ -89,6 +97,11 @@ html {
           width: 100%;
         }
       }
+      .image-uplord-field {
+        input{
+          display: none;
+        }
+      }
     }
   }
 
@@ -103,6 +116,7 @@ html {
       margin-top: 32px;
       .exhibit-form-detail {
         height: 154px;
+        width: 100%;
         margin-top: 16px;
         border: solid 1px rgb(215, 215, 215);
         border-radius: 4px
@@ -145,8 +159,12 @@ html {
         }
         .exhibit-form_price {
           width: 299px;
+          height: 48px;
           display: flex;
           align-items: center;
+          text-align: right;
+          border: solid 1px rgb(215, 215, 215);
+          border-radius: 4px;
           .mark {
             margin-right: 8px;
           }
@@ -186,21 +204,10 @@ html {
     .price-box-btn {
       width: 360px;
       margin: 0px auto 24px;
-      .exhibit-btn {
+      &_exhibit-btn {
         height: 48px;
         background-color: #ea352d;
         color: white;
-        margin-bottom: 24px;
-        font-size: 17px;
-        border-radius: 4px;
-        font-weight: 600;
-        cursor: pointer;
-        text-align: center;
-        line-height: 48px;
-      }
-      .save-btn {
-        height: 48px;
-        background-color: #bfbfbf;
         margin-bottom: 24px;
         font-size: 17px;
         border-radius: 4px;
