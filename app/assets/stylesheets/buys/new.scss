@@ -6,14 +6,6 @@ html {
   background-color: rgb(245, 245, 245);
 }
 
-a {
-  text-decoration: none;
-  color: rgb(0, 162, 255);
-  &:hover {
-    border-bottom: solid 1px rgb(0, 162, 255);
-  }
-}
-
 .buy-content {
   background-color: white;
   max-width: 635px;
@@ -87,11 +79,27 @@ a {
       height: 70px;
       border-bottom: solid 1px rgb(245, 245, 245);
       margin-top: 25px;
+      a {
+        color: rgb(0, 162, 255);
+        text-decoration: none;
+        &:hover {
+          color: rgb(0, 162, 255);
+          border-bottom: solid 1px rgb(0, 162, 255);
+        }
+      }
     }
     &_address {
       height: 115px;
       border-bottom: solid 1px rgb(245, 245, 245);
       margin-top: 25px;
+      a {
+        color: rgb(0, 162, 255);
+        text-decoration: none;
+        &:hover {
+          color: rgb(0, 162, 255);
+          border-bottom: solid 1px rgb(0, 162, 255);
+        }
+      }
       &_top {
         display: flex;
         justify-content: space-between;

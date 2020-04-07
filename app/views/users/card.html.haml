@@ -1,0 +1,22 @@
+= render "share/header"
+
+.wrapper
+  = render "share/side"
+  
+  .card-select
+    .card-select_title
+      = "支払い方法"
+    .card-select_subtitle
+      = "クレジットカード一覧"
+    .card-select_add-btn
+      .card-select_add-btn_icon
+        .far.fa-credit-card
+      .card-select_add-btn_text
+        = "クレジットカードを追加する"
+    .card-select_info
+      = link_to "支払い方法について", "#"
+      %i3.fa.fa-chevron-right
+
+= render "share/exhibit-btn"
+= render "share/download-banner"
+= render "share/footer"
