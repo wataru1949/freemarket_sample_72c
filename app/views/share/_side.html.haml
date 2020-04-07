@@ -1,7 +1,7 @@
 %nav.side-bar
   %ul.side-bar_list
     %li.side-bar_list-item
-      = link_to "マイページ", "#"
+      = link_to "マイページ", user_path
       %i.fa.fa-chevron-right
     %li.side-bar_list-item
       = link_to "出品する", "#"
@@ -34,7 +34,6 @@
       = link_to " お問い合わせ", "#"
       %i.fa.fa-chevron-right
 
-
   %h1.side-nav-head 設定
   %ul.side-bar_list
     %li.side-bar_list-item
@@ -53,10 +52,8 @@
       = link_to "本人情報", "#"
       %i.fa.fa-chevron-right
     %li.side-bar_list-item
-      -# クレジットカード登録/変更機能へのリンクパスを入れる
-      = link_to "クレジットカード登録", "#"
+      = link_to "クレジットカード登録", card_user_path
       %i.fa.fa-chevron-right
     %li.side-bar_list-item
-      -# ログアウト画面へのリンクパスを入れる
-      = link_to "ログアウト", "#"
+      = link_to "ログアウト", logout_user_path
       %i.fa.fa-chevron-right
