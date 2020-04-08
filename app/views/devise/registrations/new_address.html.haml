@@ -1,38 +1,43 @@
-%h2 Sign up
+%h2 会員情報入力２
 = form_for @address do |f|
-  = render "devise/shared/error_messages", resource: @address
+  .error_messages
+    = render "devise/shared/error_messages", resource: @address
   
   .field
-    = f.label :postal_code
-    %br/
-    = f.text_field :postal_code, autofocus: true, autocomplete: "nickname"
+    .label
+      = f.label :postal_code, '郵便番号'
+    .text_field
+      = f.text_field :postal_code, placeholder: "例) 123-4567", autofocus: true, autocomplete: "postal_code"
 
   .field
-    = f.label :prefecture_id
-    %br/
-    = f.collection_select :prefecture_id, Prefecture.all, :id, :name, autofocus: true, autocomplete: "nickname"
+    .label
+      = f.label :prefecture_id, '都道府県'
+    .collection_select
+      = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "--", autofocus: true, autocomplete: "prefecture_id"
 
   .field
-    = f.label :city
-    %br/
-    = f.text_field :city, autofocus: true, autocomplete: "nickname"
+    .label
+      = f.label :city, '市区町村'
+    .text_field
+      = f.text_field :city, autofocus: true, autocomplete: "city"
 
   .field
-    = f.label :street
-    %br/
-    = f.text_field :street, autofocus: true, autocomplete: "nickname"
+    .label
+      = f.label :street, '番地'
+    .text_field
+      = f.text_field :street, autofocus: true, autocomplete: "street"
 
   .field
-    = f.label :building
-    %br/
-    = f.text_field :building, autofocus: true, autocomplete: "nickname"
+    .label
+      = f.label :building, 'マンション名・ビル名・部屋番号'
+    .text_field
+      = f.text_field :building, autofocus: true, autocomplete: "building"
 
   .field
-    = f.label :phone
-    %br/
-    = f.text_field :phone, autofocus: true, autocomplete: "nickname"
+    .label
+      = f.label :phone, '電話番号'
+    .text_field
+      = f.text_field :phone, placeholder: "例) 000-1234-5678", autofocus: true, autocomplete: "phone"
 
   .actions
-    = f.submit "Sign up"
-
-= render "devise/shared/links"
+    = f.submit "登録"
