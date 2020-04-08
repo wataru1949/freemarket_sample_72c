@@ -10,6 +10,7 @@ class Item < ApplicationRecord
   validates :state, numericality: { less_than_or_equal_to: 3 }
   
   has_many :item_images
+  belongs_to :user
 
   belongs_to_active_hash :prefecture
   belongs_to_active_hash :condition
