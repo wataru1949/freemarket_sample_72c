@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
 
   def index
+    @items = Item.where.not(state: [3]).order("created_at DESC")
   end
 
   def new

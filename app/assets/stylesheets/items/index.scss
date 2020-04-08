@@ -265,10 +265,12 @@
     }
     &__content {
       width: 900px;
-      margin: 0 auto 90px;
+      margin: auto;
+      margin-bottom: 20px;
       display: flex;
       justify-content: space-around;
       .item {
+        margin: 0 30px;
         &__image {
           background-color: blue;
           width: 220px;
