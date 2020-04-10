@@ -1,38 +1,59 @@
-%h2 Sign up
-= form_for @address do |f|
-  = render "devise/shared/error_messages", resource: @address
-  
-  .field
-    = f.label :postal_code
-    %br/
-    = f.text_field :postal_code, autofocus: true, autocomplete: "nickname"
+= render 'share/top-icon'
 
-  .field
-    = f.label :prefecture_id
-    %br/
-    = f.collection_select :prefecture_id, Prefecture.all, :id, :name, autofocus: true, autocomplete: "nickname"
+.registration
+  .registration_title
+    %h2 住所登録
+  .registration_form
+    = form_for @address do |f|
+      = render "devise/shared/error_messages", resource: @address
+      .registration-form_postal-code-box
+        .form-title
+          %span.box-form-explanaion
+            郵便番号
+          %span.indispensable
+            必須
+        = f.text_field :postal_code, autofocus: true, class: 'registration-form-field', placeholder: '例）123-1234'
+      .registration-form_prefecture-box
+        .form-title
+          %span.box-form-explanaion
+            都道府県
+          %span.indispensable
+            必須
+        = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt:"--"}, {class: 'registration-form-field'}
+      .registration-form_city-box
+        .form-title
+          %span.box-form-explanaion
+            市区町村
+          %span.indispensable
+            必須
+        = f.text_field :city, autofocus: true, class: 'registration-form-field', placeholder: '例）港区'
+      .registration-form_street-box
+        .form-title
+          %span.box-form-explanaion
+            番地
+          %span.indispensable
+            必須
+        = f.text_field :street, autofocus: true, class: 'registration-form-field', placeholder: '例）青山１−１−１'
+      .registration-form_building-box
+        .form-title
+          %span.box-form-explanaion
+            建物名
+          %span.indispensable_optional
+            任意
+        = f.text_field :building, autofocus: true, class: 'registration-form-field', placeholder: '例）○○ビル 101号室'
+      .registration-form_phone-box
+        .form-title
+          %span.box-form-explanaion
+            電話番号
+          %span.indispensable_optional
+            任意
+        - if @minimum_password_length
+          %em
+        = f.text_field :phone, autofocus: true, class: 'registration-form-field', placeholder: '例）012-345-6789'
+      .actions
+        = f.submit "登録する", class: "action"
 
-  .field
-    = f.label :city
-    %br/
-    = f.text_field :city, autofocus: true, autocomplete: "nickname"
+.registration_footer
+  = "©️FURIMA"
 
-  .field
-    = f.label :street
-    %br/
-    = f.text_field :street, autofocus: true, autocomplete: "nickname"
-
-  .field
-    = f.label :building
-    %br/
-    = f.text_field :building, autofocus: true, autocomplete: "nickname"
-
-  .field
-    = f.label :phone
-    %br/
-    = f.text_field :phone, autofocus: true, autocomplete: "nickname"
-
-  .actions
-    = f.submit "Sign up"
-
-= render "devise/shared/links"
+-# = render "devise/shared/links"

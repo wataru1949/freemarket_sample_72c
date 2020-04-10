@@ -1,56 +1,72 @@
-%h2 Sign up
-= form_for(@user, url: user_registration_path) do |f|
-  = render "devise/shared/error_messages", resource: @user
+= render 'share/top-icon'
+
+.registration
+  .registration_title
+    %h2 会員情報入力
+  .registration_form
+    = form_for(@user, url: user_registration_path) do |f|
+      = render "devise/shared/error_messages", resource: @user
+      .registration_form_nikname-box
+        .form-title
+          %span.box-form-explanaion
+            ニックネーム
+          %span.indispensable
+            必須
+        = f.text_field :nickname, autofocus: true, class: 'registration-form-field', placeholder: '例）フリマ太郎'
+      .registration_form_name-box
+        .form-title
+          %span.box-form-explanaion
+            お名前(全角)
+          %span.indispensable
+            必須
+        .form-text
+          = f.text_field :lastname, autofocus: true, class: 'registration-form-field', placeholder: '例）山田'
+          = f.text_field :firstname, autofocus: true, class: 'registration-form-field', placeholder: '例）彩'
+      .registration_form_name-kana-box
+        .form-title
+          %span.box-form-explanaion
+            お名前カナ(全角)
+          %span.indispensable
+            必須
+        .form-text
+          = f.text_field :lastname_kana, autofocus: true, class: 'registration-form-field', placeholder: '例）ヤマダ'
+          = f.text_field :firstname_kana, autofocus: true, class: 'registration-form-field', placeholder: '例）アヤ'
+      .registration_form_birthday-box
+        .form-title
+          %span.box-form-explanaion
+            生年月日
+          %span.indispensable
+            必須
+        != sprintf(f.date_select(:birthday, end_year:1900, autofocus: true, with_css_classes: 'birthday-form-field', prompt:"--",use_month_numbers:true, date_separator:'%s'),'年','月')+'日'
+      .registration_form_email-box
+        .form-title
+          %span.box-form-explanaion
+            メールアドレス
+          %span.indispensable
+            必須
+        = f.email_field :email, autofocus: true, autocomplete: "email", class: 'registration-form-field', placeholder: 'PC・携帯どちらでも可'
+      .registration_form_password-box
+        .form-title
+          %span.box-form-explanaion
+            パスワード
+          %span.indispensable
+            必須
+        - if @minimum_password_length
+          %em
+        = f.password_field :password, autocomplete: "new-password", class: 'registration-form-field', placeholder: '7文字以上の半角英数字'
+      .registration_form_password-confirmation-box
+        .form-title
+          %span.box-form-explanaion
+            パスワード(再入力)
+          %span.indispensable
+            必須
+        - if @minimum_password_length
+          %em
+        = f.password_field :password_confirmation, autocomplete: "new-password", class: 'registration-form-field', placeholder: '7文字以上の半角英数字(再入力)'
+      .actions
+        = f.submit "次へ進む", class: "action"
+
+.registration_footer
+  = "©️FURIMA"
   
-  .field
-    = f.label :nickname
-    %br/
-    = f.text_field :nickname, autofocus: true, autocomplete: "nickname"
 
-  .field
-    = f.label :lastname
-    %br/
-    = f.text_field :lastname, autofocus: true, autocomplete: "nickname"
-
-  .field
-    = f.label :firstname
-    %br/
-    = f.text_field :firstname, autofocus: true, autocomplete: "nickname"
-
-  .field
-    = f.label :lastname_kana
-    %br/
-    = f.text_field :lastname_kana, autofocus: true, autocomplete: "nickname"
-
-  .field
-    = f.label :firstname_kana
-    %br/
-    = f.text_field :firstname_kana, autofocus: true, autocomplete: "nickname"
-
-  .field
-    = f.label :birthday
-    %br/
-    = f.date_select(:birthday, end_year:1900, autofocus: true, autocomplete: "nickname")
-
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-
-  .actions
-    = f.submit "Next"
-
-= render "devise/shared/links"
