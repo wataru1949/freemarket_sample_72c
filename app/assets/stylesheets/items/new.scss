@@ -206,6 +206,7 @@ html {
       margin: 0px auto 24px;
       &_exhibit-btn {
         height: 48px;
+        width: 100%;
         background-color: #ea352d;
         color: white;
         margin-bottom: 24px;
@@ -224,6 +225,7 @@ html {
         justify-content: center;
         text-align: center;
         align-items: center;
+        text-decoration: none;
       }
     }
   }

@@ -12,7 +12,7 @@
             ニックネーム
           %span.indispensable
             必須
-        = f.text_field :nickname, autofocus: true, class: 'registration-form-field', placeholder: '例）フリマ太郎'
+        = f.text_field :nickname, autofocus: true, class: 'registration-form-field', placeholder: '例）フリマ太郎', autocomplete: "nickname"
       .registration_form_name-box
         .form-title
           %span.box-form-explanaion
@@ -20,8 +20,8 @@
           %span.indispensable
             必須
         .form-text
-          = f.text_field :lastname, autofocus: true, class: 'registration-form-field', placeholder: '例）山田'
-          = f.text_field :firstname, autofocus: true, class: 'registration-form-field', placeholder: '例）彩'
+          = f.text_field :lastname, class: 'registration-form-field', placeholder: '例）山田', autocomplete: "lastname"
+          = f.text_field :firstname, class: 'registration-form-field', placeholder: '例）彩', autocomplete: "firstname"
       .registration_form_name-kana-box
         .form-title
           %span.box-form-explanaion
@@ -29,15 +29,15 @@
           %span.indispensable
             必須
         .form-text
-          = f.text_field :lastname_kana, autofocus: true, class: 'registration-form-field', placeholder: '例）ヤマダ'
-          = f.text_field :firstname_kana, autofocus: true, class: 'registration-form-field', placeholder: '例）アヤ'
+          = f.text_field :lastname_kana, class: 'registration-form-field', placeholder: '例）ヤマダ', autocomplete: "lastname_kana"
+          = f.text_field :firstname_kana, class: 'registration-form-field', placeholder: '例）アヤ', autocomplete: "firstname_kana"
       .registration_form_birthday-box
         .form-title
           %span.box-form-explanaion
             生年月日
           %span.indispensable
             必須
-        != sprintf(f.date_select(:birthday, end_year:1900, autofocus: true, with_css_classes: 'birthday-form-field', prompt:"--",use_month_numbers:true, date_separator:'%s'),'年','月')+'日'
+        != sprintf(f.date_select(:birthday, start_year:Time.now.year, end_year:1900, autofocus: true, with_css_classes: 'birthday-form-field', prompt:"--",use_month_numbers:true, date_separator:'%s'),'年','月')+'日'
       .registration_form_email-box
         .form-title
           %span.box-form-explanaion
@@ -68,5 +68,3 @@
 
 .registration_footer
   = "©️FURIMA"
-  
-

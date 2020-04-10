@@ -38,10 +38,12 @@ ActiveRecord::Schema.define(version: 2020_04_07_033222) do
     t.integer "price", null: false
     t.integer "state", default: 0, null: false
     t.string "brand"
-    t.string "condition", null: false
-    t.string "shipping_cost", null: false
-    t.string "shipping_id", null: false
-    t.string "shipping_method", null: false
+    t.integer "condition_id", null: false
+    t.integer "shipping_cost_id", null: false
+    t.integer "shipping_date_id", null: false
+    t.integer "shipping_method_id", null: false
+    t.integer "prefecture_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

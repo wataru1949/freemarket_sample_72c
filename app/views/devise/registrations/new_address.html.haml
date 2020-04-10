@@ -12,7 +12,7 @@
             郵便番号
           %span.indispensable
             必須
-        = f.text_field :postal_code, autofocus: true, class: 'registration-form-field', placeholder: '例）123-1234'
+        = f.text_field :postal_code, autofocus: true, class: 'registration-form-field', placeholder: '例）123-1234', autocomplete: "postal_code"
       .registration-form_prefecture-box
         .form-title
           %span.box-form-explanaion
@@ -26,30 +26,28 @@
             市区町村
           %span.indispensable
             必須
-        = f.text_field :city, autofocus: true, class: 'registration-form-field', placeholder: '例）港区'
+        = f.text_field :city, class: 'registration-form-field', placeholder: '例）港区', autocomplete: "city"
       .registration-form_street-box
         .form-title
           %span.box-form-explanaion
             番地
           %span.indispensable
             必須
-        = f.text_field :street, autofocus: true, class: 'registration-form-field', placeholder: '例）青山１−１−１'
+        = f.text_field :street, class: 'registration-form-field', placeholder: '例）青山１−１−１', autocomplete: "street"
       .registration-form_building-box
         .form-title
           %span.box-form-explanaion
             建物名
           %span.indispensable_optional
             任意
-        = f.text_field :building, autofocus: true, class: 'registration-form-field', placeholder: '例）○○ビル 101号室'
+        = f.text_field :building, class: 'registration-form-field', placeholder: '例）○○ビル 101号室', autocomplete: "building"
       .registration-form_phone-box
         .form-title
           %span.box-form-explanaion
             電話番号
           %span.indispensable_optional
             任意
-        - if @minimum_password_length
-          %em
-        = f.text_field :phone, autofocus: true, class: 'registration-form-field', placeholder: '例）012-345-6789'
+        = f.text_field :phone, class: 'registration-form-field', placeholder: '例）012-345-6789', autocomplete: "phone"
       .actions
         = f.submit "登録する", class: "action"
 

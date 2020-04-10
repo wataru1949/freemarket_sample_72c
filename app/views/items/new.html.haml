@@ -11,12 +11,13 @@
             必須
         %p.image-container_box_message
           最大10枚までアップロードできます
-        = f.label :image, class: "image-uplord-field" do
-          %p.image-uplord-field_message
-            ドラッグアンドドロップ
-            %br
-            またはクリックしてファイルをアップロード
-          = f.file_field :image
+        = f.fields_for :item_images do |i|
+          = i.label :image, class: "image-uplord-field" do
+            %p.image-uplord-field_message
+              ドラッグアンドドロップ
+              %br
+              またはクリックしてファイルをアップロード
+            = i.file_field :image
     .explain-container
       .explain-container_name-box
         .form-title
@@ -24,14 +25,14 @@
             商品名
           %span.indispensable
             必須
-        = f.text_field :text, placeholder: "40文字まで", maxlength:"40", class: 'exhibit-form-field'
+        = f.text_field :name, placeholder: "40文字まで", maxlength:"40", class: 'exhibit-form-field'
       .explain-container_text-box
         .form-title
           %span.box-form-explanaion
             商品の説明
           %span.indispensable
             必須
-        = f.text_area :text, maxlength:"1000", class: 'exhibit-form-detail', placeholder: '商品の説明 (必須 1000文字) (色、素材、重さ、定価、注意点など) 例) 2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。'
+        = f.text_area :detail, maxlength:"1000", class: 'exhibit-form-detail', placeholder: '商品の説明 (必須 1000文字) (色、素材、重さ、定価、注意点など) 例) 2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。'
         .explain-container_text-box_info
           0/1000
 
@@ -50,7 +51,7 @@
             ブランド
           %span.indispensable_optional
             任意
-        = f.text_field :text, class: 'input-text', placeholder: "例) シャネル", maxlength:"40", class: 'exhibit-form-field'
+        = f.text_field :brand, placeholder: "例) シャネル", maxlength:"40", class: 'exhibit-form-field'
       .box_form
         .form-title
           %span.box-form-explanaion
@@ -100,8 +101,7 @@
                 販売価格
               %span.indispensable
                 必須
-          = f.number_field :text, placeholder: "0", min: 0, max: 9999999, class: 'exhibit-form_price'
-          -# .exhibit-form_price
+          = f.number_field :price, placeholder: "0", min: 0, max: 9999999, class: 'exhibit-form_price' do
             %span.mark
               ¥
             .exhibit-form_right
@@ -116,9 +116,6 @@
           .profit-line_right
             ー
       .price-box-btn
-        .price-box-btn_exhibit-btn
+        = f.submit "出品する", class: "price-box-btn_exhibit-btn" do
           出品する
-        .price-box-btn_back-btn
-          もどる
-
-
+        = link_to "もどる", :back, class: "price-box-btn_back-btn"
