@@ -1,43 +1,55 @@
-%h2 会員情報入力２
-= form_for @address do |f|
-  .error_messages
-    = render "devise/shared/error_messages", resource: @address
-  
-  .field
-    .label
-      = f.label :postal_code, '郵便番号'
-    .text_field
-      = f.text_field :postal_code, placeholder: "例) 123-4567", autofocus: true, autocomplete: "postal_code"
+= render 'share/top-icon'
 
-  .field
-    .label
-      = f.label :prefecture_id, '都道府県'
-    .collection_select
-      = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "--", autofocus: true, autocomplete: "prefecture_id"
+.registration
+  .registration_title
+    %h2 住所登録
+  .registration_form
+    = form_for @address do |f|
+      = render "devise/shared/error_messages", resource: @address
+      .registration-form_postal-code-box
+        .form-title
+          %span.box-form-explanaion
+            郵便番号
+          %span.indispensable
+            必須
+        = f.text_field :postal_code, autofocus: true, class: 'registration-form-field', placeholder: '例）123-1234', autocomplete: "postal_code"
+      .registration-form_prefecture-box
+        .form-title
+          %span.box-form-explanaion
+            都道府県
+          %span.indispensable
+            必須
+        = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt:"--"}, {class: 'registration-form-field'}
+      .registration-form_city-box
+        .form-title
+          %span.box-form-explanaion
+            市区町村
+          %span.indispensable
+            必須
+        = f.text_field :city, class: 'registration-form-field', placeholder: '例）港区', autocomplete: "city"
+      .registration-form_street-box
+        .form-title
+          %span.box-form-explanaion
+            番地
+          %span.indispensable
+            必須
+        = f.text_field :street, class: 'registration-form-field', placeholder: '例）青山１−１−１', autocomplete: "street"
+      .registration-form_building-box
+        .form-title
+          %span.box-form-explanaion
+            建物名
+          %span.indispensable_optional
+            任意
+        = f.text_field :building, class: 'registration-form-field', placeholder: '例）○○ビル 101号室', autocomplete: "building"
+      .registration-form_phone-box
+        .form-title
+          %span.box-form-explanaion
+            電話番号
+          %span.indispensable_optional
+            任意
+        = f.text_field :phone, class: 'registration-form-field', placeholder: '例）012-345-6789', autocomplete: "phone"
+      .actions
+        = f.submit "登録する", class: "action"
 
-  .field
-    .label
-      = f.label :city, '市区町村'
-    .text_field
-      = f.text_field :city, autofocus: true, autocomplete: "city"
-
-  .field
-    .label
-      = f.label :street, '番地'
-    .text_field
-      = f.text_field :street, autofocus: true, autocomplete: "street"
-
-  .field
-    .label
-      = f.label :building, 'マンション名・ビル名・部屋番号'
-    .text_field
-      = f.text_field :building, autofocus: true, autocomplete: "building"
-
-  .field
-    .label
-      = f.label :phone, '電話番号'
-    .text_field
-      = f.text_field :phone, placeholder: "例) 000-1234-5678", autofocus: true, autocomplete: "phone"
-
-  .actions
-    = f.submit "登録"
+.registration_footer
+  = "©️FURIMA"

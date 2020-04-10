@@ -1,2 +1,9 @@
-%h2 登録が完了しました
-= link_to "トップに戻る", root_path
+= render 'share/top-icon'
+
+.create-account
+  %h2 登録が完了しました
+  .create-account_btn
+    = link_to "トップページに戻る", root_path
+
+  .create-account_footer
+    = "©️FURIMA"

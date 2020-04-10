@@ -1,0 +1,71 @@
+.registration {
+  background-color: white;
+  margin: 0 auto 40px;
+  max-width: 700px;
+  height: auto;
+  padding: 40px 120px;
+  text-align: center;
+  h2 {
+  font-size: 22px;
+  font-weight: bold;
+  }
+  &_footer {
+    text-align: center;
+  }
+}
+.form-title {
+  height: 19px;
+  min-width: 120px;
+  margin-top: 25px;
+  text-align: left;
+  .box-form-explanaion {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4em;
+  }
+  .indispensable {
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 2px 4px;
+    margin-left: 8px;
+    border-radius: 2px;
+  }
+  .indispensable_optional {
+    background-color: rgb(175, 175, 175);
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 2px 4px;
+    margin-left: 8px;
+    border-radius: 2px;
+  }
+}
+.form-text {
+  display: flex;
+  width: 400px;
+  justify-content: space-between;
+}
+.registration-form-field {
+  font-size: 16px;
+  height: 48px;
+  width: 100%;
+  padding: 0 16px;
+  background-color: white;
+  margin-top: 8px;
+  border: solid 1px rgb(215, 215, 215);
+  border-radius: 4px
+}
+.action {
+  margin-top: 40px;
+  height: 55px;
+  width: 350px;
+  background-color: #ea352d;
+  color: white;
+  margin-bottom: 24px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
