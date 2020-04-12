@@ -32,6 +32,7 @@ html {
     border-radius: 2px;
   }
 }
+
 .exhibit-form-field {
   height: 48px;
   width: 100%;
@@ -54,14 +55,11 @@ html {
   font-weight: 600;
 }
 
-
-
 .exhibit-form {
   background-color: white;
   margin: 0 auto 220px;
   max-width: 700px;
   height: 2206px;
-
   .image-container {
     padding: 40px;
     border-bottom: solid 1px rgb(235, 235, 235);
@@ -104,7 +102,6 @@ html {
       }
     }
   }
-
   .explain-container {
     height: 416px;
     padding: 40px;
@@ -130,20 +127,15 @@ html {
       }
     }
   }
-
   .detail-container {
     padding: 40px;
     border-bottom: solid 1px rgb(235, 235, 235);
   }
-
   .shipping-container {
     padding: 40px;
     border-bottom: solid 1px rgb(235, 235, 235);
-
   }
-
   .price-container {
-    height: 602px;
     padding: 40px 40px 64px;
     .calculation-box {
       height: 187px;

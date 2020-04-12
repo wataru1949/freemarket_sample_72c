@@ -1,6 +1,14 @@
-= link_to new_item_path do
-  .exhibit-btn
-    .exhibit-btn_text
-      = "出品する"
-    .exhibit-btn_icon
-      = image_tag "icon/icon_camera.png", width: "100%"
+- if user_signed_in?
+  = link_to new_item_path do
+    .exhibit-btn
+      .exhibit-btn_text
+        = "出品する"
+      .exhibit-btn_icon
+        = image_tag "icon/icon_camera.png", width: "100%"
+- else
+  = link_to  new_user_session_path do
+    .exhibit-btn
+      .exhibit-btn_text
+        = "出品する"
+      .exhibit-btn_icon
+        = image_tag "icon/icon_camera.png", width: "100%"
