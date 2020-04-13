@@ -13,12 +13,12 @@
     padding: 40px 0 40px;
     border-bottom: solid 2px whitesmoke;
     &_btn {
-      height: 43px;
-      width: 350px;
-      padding: 11px;
-      background-color: #3CCACE;
-      margin: 0 auto;
-      margin-top: 7px;
+      margin-top: 20px;
+      .new-registration {
+        padding: 15px 135px;
+        background-color: #3CCACE;
+        margin-top: 20px;
+      }
     }
     a {
       text-decoration: none;
@@ -48,6 +48,7 @@
         }
       }
     }
+
     .action {
       text-decoration: none;
       color: white;
