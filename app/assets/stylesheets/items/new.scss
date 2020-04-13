@@ -32,7 +32,33 @@ html {
     border-radius: 2px;
   }
 }
-
+#parent_category {
+  height: 48px;
+  width: 100%;
+  padding: 0 16px;
+  background-color: white;
+  margin-top: 16px;
+  border: solid 1px rgb(215, 215, 215);
+  border-radius: 4px
+}
+#child_category {
+  height: 48px;
+  width: 100%;
+  padding: 0 16px;
+  background-color: white;
+  margin-top: 16px;
+  border: solid 1px rgb(215, 215, 215);
+  border-radius: 4px
+}
+#grandchild_category {
+  height: 48px;
+  width: 100%;
+  padding: 0 16px;
+  background-color: white;
+  margin-top: 16px;
+  border: solid 1px rgb(215, 215, 215);
+  border-radius: 4px
+}
 .exhibit-form-field {
   height: 48px;
   width: 100%;
