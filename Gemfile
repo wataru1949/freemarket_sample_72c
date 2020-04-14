@@ -85,3 +85,5 @@ gem 'active_hash'
 gem "font-awesome-sass"
 gem 'rails-i18n', '~> 5.1'
 gem 'ancestry'
+gem 'payjp'
+gem 'dotenv-rails', require: 'dotenv/rails-now'
