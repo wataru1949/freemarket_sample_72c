@@ -18,7 +18,9 @@ class ItemsController < ApplicationController
   end
 
   def show
-  end
+    @item = Item.find(params[:id])
+    #find_byかも
+    end
 
   def edit
   end
