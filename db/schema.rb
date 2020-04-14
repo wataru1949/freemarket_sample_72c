@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_07_033222) do
+ActiveRecord::Schema.define(version: 2020_04_10_085408) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "postal_code", null: false
@@ -23,6 +23,14 @@ ActiveRecord::Schema.define(version: 2020_04_07_033222) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
+
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "ancestry"
+    t.index ["ancestry"], name: "index_categories_on_ancestry"
   end
 
   create_table "item_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -46,6 +54,8 @@ ActiveRecord::Schema.define(version: 2020_04_07_033222) do
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_items_on_category_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -67,4 +77,5 @@ ActiveRecord::Schema.define(version: 2020_04_07_033222) do
   end
 
   add_foreign_key "addresses", "users"
+  add_foreign_key "items", "categories"
 end

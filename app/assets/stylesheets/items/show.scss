@@ -85,7 +85,7 @@
     }
     &_detail {
       &_box {
-        width: 700px;
+        width: 720px;
         display: flex;
         font-size: 13px;
         &_header {
@@ -100,13 +100,44 @@
         &_data {
           td {
             height:50px;
-            width: 460px;
+            width: 480px;
             border: solid 1px #dedede;
             text-align: left;
             padding: 0 20px;
           }
         }
       }
+    }
+    &_buy {
+      margin-top: 30px;
+      height: 48px;
+      width: 100%;
+      background-color: #3CCACE;
+      margin-bottom: 24px;
+      font-size: 17px;
+      border-radius: 4px;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+      line-height: 48px;
+      a {
+        color: white;
+        text-decoration: none;
+      }
+    }
+    &_sold-out {
+      margin-top: 30px;
+      height: 48px;
+      width: 100%;
+      background-color: grey;
+      color: white;
+      margin-bottom: 24px;
+      font-size: 17px;
+      border-radius: 4px;
+      font-weight: 600;
+      cursor: not-allowed;
+      text-align: center;
+      line-height: 48px;
     }
   }
   &_comment {

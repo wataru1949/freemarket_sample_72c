@@ -17,5 +17,5 @@ class User < ApplicationRecord
             }
 
   has_one :address
-  has_many :items
+  has_many :items, dependent: :destroy
 end
