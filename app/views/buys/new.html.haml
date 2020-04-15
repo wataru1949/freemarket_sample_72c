@@ -23,12 +23,12 @@
         .buy-content_info_price_point_text
           = 'ポイントを使用(所持ポイント:P0)'
     .buy-content_info_pay
-      - if true
+      - if @card.present?
         .buy-content_info_pay_top
           .buy-content_info_pay_top_text
             = '支払い方法'
           .buy-content_info_pay_top_change
-            = link_to '変更する', '#'
+            = link_to '変更する', new_card_path
         .buy-content_info_pay_bottom
           .buy-content_info_pay_bottom_card
             = 'クレジットカード'
@@ -38,35 +38,32 @@
             = '有効期限 01 / 22'
       - else
         .buy-content_info_pay_top
-          .buy-content_info_pay_method
+          .buy-content_info_pay_top_text
             = '支払い方法'
-          .buy-content_info_pay_register
-            = link_to '+ 登録してください', '#'
+        .buy-content_info_pay_register
+          = link_to '+ 登録してください', new_card_path
     .buy-content_info_address
-      - if true
-        .buy-content_info_address_top
-          .buy-content_info_address_top_text
-            = '配送先'
-          .buy-content_info_address_top_change
-            = link_to '変更する', '#'
-        .buy-content_info_address_bottom
-          .buy-content_info_address_bottom_post
-            = current_user.address.postal_code
-          .buy-content_info_address_bottom_address
-            = current_user.address.prefecture.name
-            = current_user.address.city
-            = current_user.address.street
-            = current_user.address.building
-          .buy-content_info_address_bottom_user
-            = current_user.lastname
-            = current_user.firstname
-      - else
-        .buy-content_info_address_top
-          .buy-content_info_address_top_text
-            = '配送先'
-        .buy-content_info_address_register
-        = link_to '+ 登録してください', '#'
-    .buy-content_info_purchase
-      .buy-content_info_purchase_btn
-        = '購入する'
+      .buy-content_info_address_top
+        .buy-content_info_address_top_text
+          = '配送先'
+        .buy-content_info_address_top_change
+          = link_to '変更する', '#'
+      .buy-content_info_address_bottom
+        .buy-content_info_address_bottom_post
+          = current_user.address.postal_code
+        .buy-content_info_address_bottom_address
+          = current_user.address.prefecture.name
+          = current_user.address.city
+          = current_user.address.street
+          = current_user.address.building
+        .buy-content_info_address_bottom_user
+          = current_user.lastname
+          = current_user.firstname
+    - if @card.present?
+      .buy-content_info_purchase
+        = link_to item_buys_path(@item.id), method: :post do
+          .buy-content_info_purchase_btn
+            = '購入する'
+    - else
+      = ''
 .buy-bottom

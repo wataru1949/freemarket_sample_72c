@@ -1,0 +1,28 @@
+.card-content_main
+  - if @card.present?
+    .card-content_main_text
+      = '支払い方法'
+    = form_with url: card_path(@card.id), method: :delete, local: true, id: 'charge-form' do |f|
+      .card-content_main_top
+        = 'クレジットカード一覧'
+      .card-content_main_index
+        .card-content_main_index_left
+          -# カードブランドのアイコンを表示
+          = image_tag "credit-cards/#{@card_src}", height: '30px', alt: @card_brand, id: "card_image"
+          .card-content_main_index_left_pay-num
+            = "**** **** **** " + @card_information.last4
+          .card-content_main_index_left_pay-num
+            - exp_month = @card_information.exp_month.to_s
+            - exp_year = @card_information.exp_year.to_s.slice(2,3)
+            = exp_month + " / " + exp_year
+          %input{type: "hidden", name: "card_id", value: ""}
+        .card-content_main_index_right
+          = f.submit "削除する", {class: "card-content_main_index_right_list-remove"}
+          - if flash[:notice]
+            .alert.alert-success
+              = flash[:notice]
+          - if flash[:alert]
+            .alert.alert-failed
+              = flash[:alert]
+  - else
+    = render "share/add-card"

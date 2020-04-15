@@ -94,14 +94,6 @@ html {
           font-size: 14px;
           font-weight: bold;
         }
-        a {
-          color: rgb(0, 162, 255);
-          text-decoration: none;
-          &:hover {
-            color: rgb(0, 162, 255);
-            border-bottom: solid 1px rgb(0, 162, 255);
-          }
-        }
       }
     }
     &_address {
@@ -116,14 +108,6 @@ html {
           font-size: 14px;
           font-weight: bold;
         }
-        a {
-          color: rgb(0, 162, 255);
-          text-decoration: none;
-          &:hover {
-            color: rgb(0, 162, 255);
-            border-bottom: solid 1px rgb(0, 162, 255);
-          }
-        }
       }
     }
     &_purchase {
@@ -136,6 +120,14 @@ html {
         font-weight: bold;
         text-align: center;
         line-height: 45px;
+      }
+    }
+    a {
+      color: rgb(0, 162, 255);
+      text-decoration: none;
+      &:hover {
+        color: rgb(0, 162, 255);
+        border-bottom: solid 1px rgb(0, 162, 255);
       }
     }
   }

@@ -82,14 +82,22 @@
             %tr
               %td
                 = @item.shipping_date.name
-    - if @item.state == 1
+    - if @item.state == 1 && @item.user != current_user
       .show-item_main_buy
         = link_to new_item_buy_path(@item.id) do
           .show-item_main_buy_text
             = '購入画面に進む'
-    - elsif @item.state == 2
+    - elsif @item.state == 2 && @item.user != current_user
       .show-item_main_sold-out
         = '売り切れました'
+    - elsif @item.user == current_user
+      .show-item_main_option
+        = link_to edit_item_path do
+          .show-item_main_edit
+            = '編集'
+        = link_to item_path, method: :delete do
+          .show-item_main_destroy
+            = '削除'
     - else
       = ''
 

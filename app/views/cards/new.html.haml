@@ -5,7 +5,7 @@
     .card-content_main_text
       = 'クレジットカード情報入力'
     .card-content_main_box
-      = form_with url: pay_card_index_path, method: :post, html: { name: "inputForm" } do |f|
+      = form_with url: cards_path, method: :post, html: { name: "inputForm" } do |f|
         .card-content_main_box_top
           .label
             = f.label :number, 'カード番号'
