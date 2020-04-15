@@ -1,5 +1,11 @@
 .exhibit-form
-  = form_with(model: @item) do |f|
+  = form_with model: @item, local: true do |f|
+    - if item.errors.any?
+      .exhibit-form_errors
+        %h2= "#{item.errors.full_messages.count}件のエラーが発生しました。"
+        %ul
+          - item.errors.full_messages.each do |message|
+            %li= message
     .image-container
       .image-container_box
         .form-title

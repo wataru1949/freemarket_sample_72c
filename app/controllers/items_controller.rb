@@ -13,6 +13,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
+      # @item.item_images.new
       render :new
     end
   end
@@ -43,7 +44,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :detail, :price, :brand, :condition_id, :shipping_cost_id, :shipping_method_id, :prefecture_id, :shipping_date_id, :item_id, item_images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id )
+    params.require(:item).permit(:name, :detail, :price, :brand, :condition_id, :shipping_cost_id, :shipping_method_id, :prefecture_id, :shipping_date_id, item_images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id )
   end
 
 end
