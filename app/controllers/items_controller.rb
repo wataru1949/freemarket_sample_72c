@@ -11,6 +11,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
+      @item.update(state: 1)
       redirect_to root_path
     else
       render :new
@@ -19,7 +20,6 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    #find_byかも
     end
 
   def edit
