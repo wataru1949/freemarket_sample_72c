@@ -51,9 +51,11 @@
     %li.side-bar_list-item
       = link_to "本人情報", "#"
       %i.fa.fa-chevron-right
-    %li.side-bar_list-item
-      = link_to "クレジットカード登録", card_user_path
-      %i.fa.fa-chevron-right
-    %li.side-bar_list-item
-      = link_to "ログアウト", logout_user_path
-      %i.fa.fa-chevron-right
+    = link_to card_user_path do
+      %li.side-bar_list-item
+        = "クレジットカード登録"
+        %i.fa.fa-chevron-right
+    = link_to logout_user_path do
+      %li.side-bar_list-item
+        = "ログアウト"
+        %i.fa.fa-chevron-right

@@ -1,0 +1,31 @@
+.card-content {
+  &_main {
+    &_text {}
+    &_top {
+    }
+    &_index{
+      display: flex;
+      padding: 0 20%;
+      &_left {
+        width: 50%;
+        margin-bottom: 40px;
+        .card-content_main_box_left_pay-num {}
+        .card-content_main_box_left_pay-num {}
+        %input {}
+      }
+      &_right {
+        width: 50%;
+        &_list-remove {
+          font-size: 14px;
+          padding: 1px 6px;
+          color: red;
+          border: solid 1px red;
+          border-radius: 2px;
+          cursor: pointer;
+          .alert.alert-success {}
+          .alert.alert-failed {}
+        }
+      }
+    }
+  }
+}

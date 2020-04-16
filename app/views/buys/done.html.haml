@@ -1,0 +1,59 @@
+= render 'share/top-icon'
+
+.buy-content
+  .buy-content_message
+    .buy-content_message_top
+      = '発送をお待ちください'
+    .buy-content_message_bottom
+      = '出品者からの発送通知をお待ちください'
+  .buy-content_title
+    = '購入が完了しました'
+  .buy-content_item
+    .buy-content_item_image
+      = image_tag @item.item_images.first.image.url, class: 'buy-content_item_image_main'
+    .buy-content_item_detail
+      .buy-content_item_detail_name
+        = @item.name
+      .buy-content_item_detail_price
+        = "¥#{@item.price.to_s(:delimited)} (税込) 送料込み"
+  .buy-content_info
+    .buy-content_info_price
+      .buy-content_info_price_total
+        .buy-content_info_price_total_text
+          = '支払い金額'
+        .buy-content_info_price_total_number
+          = "¥#{@item.price.to_s(:delimited)}"
+    .buy-content_info_pay
+      .buy-content_info_pay_top
+        .buy-content_info_pay_top_text
+          = '支払い方法'
+      .buy-content_info_pay_bottom
+        .buy-content_info_pay_bottom_card
+          = 'クレジットカード'
+        .buy-content_info_pay_bottom_number
+          = "************" + @card_information.last4
+        .buy-content_info_pay_bottom_deadline
+          = '有効期限 '
+          - exp_month = @card_information.exp_month.to_s
+          - exp_year = @card_information.exp_year.to_s.slice(2,3)
+          = exp_month + " / " + exp_year
+    .buy-content_info_address
+      .buy-content_info_address_top
+        .buy-content_info_address_top_text
+          = '配送先'
+      .buy-content_info_address_bottom
+        .buy-content_info_address_bottom_post
+          = current_user.address.postal_code
+        .buy-content_info_address_bottom_address
+          = current_user.address.prefecture.name
+          = current_user.address.city
+          = current_user.address.street
+          = current_user.address.building
+        .buy-content_info_address_bottom_user
+          = current_user.lastname
+          = current_user.firstname
+    .buy-content_info_purchase
+      = link_to root_path do
+        .buy-content_info_purchase_btn
+          = 'トップページに戻る'
+.buy-bottom

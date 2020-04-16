@@ -4,6 +4,18 @@
   background:rgb(245, 245, 245);
   padding: 40px 0;
   justify-content: center;
+  .left-box {
+
+  }
+  .right-box {
+    width: 50%;
+    height: 350px;
+    min-width: 400px;
+    background-color: white;
+    a {
+      text-decoration: none;
+    }
+  }
 }
 
 .mypage {
