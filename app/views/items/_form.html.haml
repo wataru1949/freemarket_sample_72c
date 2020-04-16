@@ -9,13 +9,15 @@
             必須
         %p.image-container_box_message
           最大10枚までアップロードできます
-        = f.fields_for :item_images do |i|
-          = i.label :image, class: "image-uplord-field" do
-            %p.image-uplord-field_message
-              ドラッグアンドドロップ
-              %br
-              またはクリックしてファイルをアップロード
-            = i.file_field :image
+      .image-container_unit-man
+        .item-image-container__unit.preview-0
+          = f.fields_for :item_images do |i|
+            %ul
+            .image-container__unit--guide
+              %label(for="image-label")
+                = i.file_field :image, multiple: true, class: 'image-upload-dropfile-hidden', id:"image-label",type: 'file', name: "item_images[image][]"
+                .have-image.view-0
+                  %i.fas.fa-camera
     .explain-container
       .explain-container_name-box
         .form-title
