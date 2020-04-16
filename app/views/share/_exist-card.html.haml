@@ -10,7 +10,7 @@
           -# カードブランドのアイコンを表示
           = image_tag "credit-cards/#{@card_src}", height: '30px', alt: @card_brand, id: "card_image"
           .card-content_main_index_left_pay-num
-            = "**** **** **** " + @card_information.last4
+            = "************" + @card_information.last4
           .card-content_main_index_left_pay-num
             - exp_month = @card_information.exp_month.to_s
             - exp_year = @card_information.exp_year.to_s.slice(2,3)

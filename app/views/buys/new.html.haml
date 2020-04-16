@@ -33,9 +33,12 @@
           .buy-content_info_pay_bottom_card
             = 'クレジットカード'
           .buy-content_info_pay_bottom_number
-            = '************0001'
+            = "************" + @card_information.last4
           .buy-content_info_pay_bottom_deadline
-            = '有効期限 01 / 22'
+            = '有効期限 '
+            - exp_month = @card_information.exp_month.to_s
+            - exp_year = @card_information.exp_year.to_s.slice(2,3)
+            = exp_month + " / " + exp_year
       - else
         .buy-content_info_pay_top
           .buy-content_info_pay_top_text

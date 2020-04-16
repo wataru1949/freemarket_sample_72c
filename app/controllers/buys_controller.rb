@@ -6,6 +6,11 @@ class BuysController < ApplicationController
   require 'payjp'
 
   def new
+    if @card.present?
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @card_information = customer.cards.retrieve(@card.card_id)
+    end
   end
 
   def create
@@ -26,6 +31,9 @@ class BuysController < ApplicationController
   end
 
   def done
+    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    customer = Payjp::Customer.retrieve(@card.customer_id)
+    @card_information = customer.cards.retrieve(@card.card_id)
   end
 
   private
