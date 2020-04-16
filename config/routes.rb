@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root "items#index"
+
   devise_for :users, controllers: {
     registrations: 'users/registrations',
   }
@@ -13,7 +15,6 @@ Rails.application.routes.draw do
     get 'logout', on: :member
   end
 
-  root "items#index"
   resources :items do
     resources :buys, only: [:new, :create] do
       collection do

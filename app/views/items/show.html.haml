@@ -87,10 +87,10 @@
         = link_to new_item_buy_path(@item.id) do
           .show-item_main_buy_text
             = '購入画面に進む'
-    - elsif @item.state == 2 && @item.user != current_user
+    - elsif @item.state == 2
       .show-item_main_sold-out
         = '売り切れました'
-    - elsif @item.user == current_user
+    - elsif @item.state == 1 && @item.user == current_user
       .show-item_main_option
         = link_to edit_item_path do
           .show-item_main_edit
@@ -111,6 +111,5 @@
     .show-item_comment_btn
       = link_to 'コメントする', "#", class: "cta-btn"
 
-=render "share/exhibit-btn"
 =render "share/download-banner"
 =render "share/footer"

@@ -17,7 +17,7 @@ class BuysController < ApplicationController
     )
     if @item.save
       @item.update(state: 2)
-      # @item.buyer_id = current_user.id
+      @item.update(buyer: current_user.id)
       redirect_to action: 'done'
     else
       flash[:alert] = '購入に失敗しました。'
@@ -26,14 +26,6 @@ class BuysController < ApplicationController
   end
 
   def done
-    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
-    customer = Payjp::Customer.retrieve(@card.customer_id)
-    @card_information = customer.cards.retrieve(@card.card_id)
-
-    # @prefecture = Prefecture.find(current_user.address.prefecture_id).name
-
-    @item_buyer = Item.find(params[:item_id])
-    # @item_buyer.update(buyer_id: current_user.id)
   end
 
   private
