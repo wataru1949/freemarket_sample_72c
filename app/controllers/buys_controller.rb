@@ -21,8 +21,7 @@ class BuysController < ApplicationController
     currency: 'jpy'
     )
     if @item.save
-      @item.update(state: 2)
-      @item.update(buyer: current_user.id)
+      @item.update(state: 2, buyer: current_user.id)
       redirect_to action: 'done'
     else
       flash[:alert] = '購入に失敗しました。'
