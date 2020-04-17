@@ -3,6 +3,8 @@ class ItemsController < ApplicationController
   before_action :set_parents
 
   def index
+    @items = Item.includes(:item_images).order('created_at DESC').limit(3)
+    @item_images = ItemImage.all
   end
 
   def new
