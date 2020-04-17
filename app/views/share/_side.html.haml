@@ -3,6 +3,10 @@
     %li.side-bar_list-item-link
       = link_to "マイページ", user_path
       %i.fa.fa-chevron-right
+    = link_to  new_item_path do
+      %li.side-bar_list-item-link
+        = "出品する"
+        %i.fa.fa-chevron-right
     %li.side-bar_list-item
       = "下書き一覧"
       %i.fa.fa-chevron-right
@@ -28,7 +32,7 @@
       = "ガイド"
       %i.fa.fa-chevron-right
     %li.side-bar_list-item
-      = " お問い合わせ"
+      = "お問い合わせ"
       %i.fa.fa-chevron-right
 
   %h1.side-nav-head 設定

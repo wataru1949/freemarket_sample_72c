@@ -79,8 +79,8 @@
   height: 1050px;
   text-align: center;
   &_title {
-  font-size: 22px;
-  font-weight: bold;
+    font-size: 22px;
+    font-weight: bold;
   }
   .form-title {
     height: 19px;
@@ -111,6 +111,10 @@
       border-radius: 2px;
     }
   }
+  .form-text {
+    width: 475px;
+
+  }
   &_footer {
     text-align: center;
     margin-bottom: 30px;
@@ -126,7 +130,7 @@
   padding: 0 16px;
   background-color: white;
   margin-top: 8px;
-  margin-right: 10px;
+  margin-right: 16px;
   border: solid 1px rgb(215, 215, 215);
   border-radius: 4px
 }
@@ -138,7 +142,7 @@
   border-style: solid;
   border-color: rgb(202, 201, 201);
   height: 48px;
-  width: 120px;
+  width: 132px;
 }
 .action {
   margin-top: 40px;

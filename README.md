@@ -9,43 +9,17 @@
 |Column|Type|Options|
 |------|----|-------|
 |nickname|string|null: false|
-|email|string|null: false,unique: true|
-|password|string|null: false|
 |last_name|string|null: false|
 |first_name|string|null: false|
 |last_name_kana|string|null: false|
 |first_name_kana|string|null: false|
 |birthday|date|null: false|
+|email|string|null: false, unique: true|
+|encrypted_password|string|null: false|
 ### Association
-has_one :address  
-has_one :credit  
-has_many :items  
-</br>
-
-## addressesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|postal_code|string||
-|prefecture_id|string||
-|city|string||
-|street|string||
-|building|string||
-|phone|string|null: false|
-|user_id|reference|null: false, foreign_key: true|
-### Association
-belongs_to :user  
-</br>
-
-## creditsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|number|string|null: false|
-|month|date|null: false|
-|year|date|null: false|
-|code|integer|null: false|
-|user_id|reference|null: false, foreign_key: true|
-### Association
-belongs_to :user  
+has_one :address
+has_one :card
+has_many :items
 </br>
 
 ## itemsテーブル
@@ -56,31 +30,42 @@ belongs_to :user
 |price|integer|null: false|
 |state|integer|null: false, default: 0|
 |category_id|reference|null: false, foreign_key: true|
-|brand_id|reference|foreign_key: true|
-|condition_id|reference|null: false, foreign_key: true|
-|shipping_cost_id|reference|null: false, foreign_key: true|
-|shipping_date_id|reference|null: false, foreign_key: true|
-|shipping_method_id|reference|null: false,foreign_key: true|
-|seller_id|reference|null: false, foreign_key: true|
-|buyer_id|reference|null: false, foreign_key: true|
+|brand|string||
+|condition_id|integer|null: false|
+|shipping_cost_id|integer|null: false|
+|shipping_date_id|integer|null: false|
+|shipping_method_id|integer|null: false|
+|prefecture_id|integer|null: false|
+|user_id|integer|null: false, foreign_key: true|
+|buyer|integer||
 ### Association
-has_many :item_images  
-belongs_to :category  
-belongs_to :brand  
-belongs_to :condition  
-belongs_to :shipping_cost  
-belongs_to :shipping_date  
-belongs_to :shipping_method  
-belongs_to :user  
+belongs_to :user
+belongs_to :category
+has_many :item_images
 </br>
 
-## item_imagesテーブル
+## addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image|string|null: false|
-|item_id|reference|null: false,foreign_key: true|
+|postal_code|string|null: false|
+|prefecture_id|integer|null: false|
+|city|string|null: false|
+|street|string|null: false|
+|building|string||
+|phone|string||
+|user_id|reference|null: false, foreign_key: true|
 ### Association
-belong_to :item  
+has_one :user
+</br>
+
+## cardテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|customer_id|string|null: false|
+|card_id|string|null: false|
+### Association
+has_one :user
 </br>
 
 ## categoriesテーブル
@@ -89,44 +74,13 @@ belong_to :item
 |name|string|null: false|
 |ancestry|string||
 ### Association
-has_many :items  
+has_many :items
 </br>
 
-## brandsテーブル
+## item_imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|
+|image|string|null: false|
+|item_id|integer|null: false, foreign_key: true|
 ### Association
-has_many :items  
-</br>
-
-## conditionsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|select|string|null: false|
-### Association
-has_many :items  
-</br>
-
-## shipping_costsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|select|string|null: false|
-### Association
-has_many :items  
-</br>
-
-## shipping_datesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|select|string|null: false|
-### Association
-has_many :items  
-</br>
-
-## shipping_methodsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|select|string|null: false|
-### Association
-has_many :items  
+belong_to :item
