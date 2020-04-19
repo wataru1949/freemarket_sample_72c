@@ -11,6 +11,8 @@ ja:
           shipping_date: 発送までの日数
           shipping_method: 配送の方法
           item_images: 商品画像
+          category: カテゴリー
+          prefecture: 発送元の地域
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
