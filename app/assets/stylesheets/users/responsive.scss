@@ -1,0 +1,26 @@
+@media screen and (max-width: 1068px) {
+  .wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    background:rgb(245, 245, 245);
+    padding: 40px 0;
+    justify-content: center;
+    .mypage {
+      width: 700px;
+      min-width: 450px;
+      margin: 0 auto;
+    }
+    .side-bar {
+      width: 700px;
+      margin: 0 auto;
+      padding: 0;
+      &_list {
+        margin-top: 40px;
+      }
+      &_list-item {
+        margin: 0 0 2px;
+      }
+    }
+  }
+}
