@@ -48,7 +48,9 @@
             カテゴリー
           %span.indispensable
             必須
-        .exhibit-form-field
+        .form-select-category
+          .form-select-category__option
+            = f.collection_select :category_id, @category_parent, :id, :name, {prompt: "選択してください"}, class: 'form-select__option-box', id: 'parent_category'
       .box_form
         .form-title
           %span.box-form-explanaion
