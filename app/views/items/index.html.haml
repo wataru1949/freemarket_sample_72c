@@ -1,4 +1,4 @@
-= render 'share/header'
+=render 'share/header'
   
 .main
   .main__top-banner
@@ -95,79 +95,46 @@
       .main__pic-up__category__sub-title
         新規投稿商品
       .main__pic-up__content
-        .item
-          .item__image  
-          .item__body
-            .item__body__name
-              ギガ
-            .item__body__middle
-              .item__body__middle__price
-                100円
-              .item__body__middle__favorite
-            .item__body__fee
-              (税込)
-        .item
-          .item__image  
-          .item__body
-            .item__body__name
-              ギガ
-            .item__body__middle
-              .item__body__middle__price
-                100円
-              .item__body__middle__favorite
-            .item__body__fee
-              (税込)
-        .item
-          .item__image  
-          .item__body
-            .item__body__name
-              ギガ
-            .item__body__middle
-              .item__body__middle__price
-                100円
-              .item__body__middle__favorite
-            .item__body__fee
-              (税込)
-
+        - @items.each do |item|
+          .item
+            .item__image
+              -item.item_images.each_with_index do |image, index|
+                - if index == 0
+                  = link_to item_path(item.id) do
+                    = image_tag image.image.url
+                - else
+            .item__body
+              .item__body__name
+                = item.name
+              .item__body__middle
+                .item__body__middle__price
+                  = item.price
+                .item__body__middle__favorite
+              .item__body__fee
+                (税込)
     .main__pic-up__brand
       .main__pic-up__brand__title
         ピックアップブランド
       .main__pic-up__brand__sub-title
         アーカイバ
       .main__pic-up__content
-        .item
-          .item__image  
-          .item__body
-            .item__body__name
-              うん
-            .item__body__middle
-              .item__body__middle__price
-                100円
-              .item__body__middle__favorite
-            .item__body__fee
-              (税込)
-        .item
-          .item__image  
-          .item__body
-            .item__body__name
-              君は
-            .item__body__middle
-              .item__body__middle__price
-                100円
-              .item__body__middle__favorite
-            .item__body__fee
-              (税込)
-        .item
-          .item__image  
-          .item__body
-            .item__body__name
-              君も
-            .item__body__middle
-              .item__body__middle__price
-                100円
-              .item__body__middle__favorite
-            .item__body__fee
-              (税込)
+        - @items.each do |item|
+          .item
+            .item__image
+              -item.item_images.each_with_index do |image, index|
+                - if index == 0
+                  = link_to item_path(item.id) do
+                    = image_tag image.image.url
+                - else
+            .item__body
+              .item__body__name
+                = item.name
+              .item__body__middle
+                .item__body__middle__price
+                  = item.price
+                .item__body__middle__favorite
+              .item__body__fee
+                (税込)
 
   = render 'share/download-banner'
 
