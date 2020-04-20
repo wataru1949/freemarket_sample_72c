@@ -16,6 +16,7 @@ class ItemsController < ApplicationController
       @item.update(state: 1)
       redirect_to root_path
     else
+      @item.item_images.new
       render :new
     end
   end
