@@ -11,6 +11,22 @@ html {
   max-width: 635px;
   margin: auto;
   font-size: 13px;
+  &_message {
+    height: 90px;
+    border-bottom: solid 1px rgb(245, 245, 245);
+    text-align: center;
+    line-height: 30px;
+    padding-top: 15px;
+    color: rgb(60, 60, 60);
+    background-color: rgb(150, 235, 235);
+    &_top {
+      font-size: 16px;
+      font-weight: bold;
+    }
+    &_bottom {
+      font-size: 13px;
+    }
+  }
   &_title {
     height: 90px;
     border-bottom: solid 1px rgb(245, 245, 245);
@@ -29,10 +45,17 @@ html {
     &_image {
       width: 70px;
       height: 70px;
-      background-color: black;
       margin-right: 20px;
+      position: relative;
+      &_main {
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+      }
     }
     &_detail {
+      margin-top: 10px;
       &_name {
         margin-bottom: 10px;
       }
@@ -43,6 +66,7 @@ html {
     }
   }
   &_info {
+    height: 450px;
     padding: 0 25%;
     &_price {
       height: 85px;
@@ -76,33 +100,31 @@ html {
       }
     }
     &_pay {
-      height: 70px;
+      height: 110px;
       border-bottom: solid 1px rgb(245, 245, 245);
-      margin-top: 25px;
-      a {
-        color: rgb(0, 162, 255);
-        text-decoration: none;
-        &:hover {
-          color: rgb(0, 162, 255);
-          border-bottom: solid 1px rgb(0, 162, 255);
+      margin: 20px 0;
+      &_top {
+        margin-bottom: 5px;
+        display: flex;
+        justify-content: space-between;
+        &_text {
+          font-size: 14px;
+          font-weight: bold;
         }
       }
     }
     &_address {
-      height: 115px;
+      height: 110px;
       border-bottom: solid 1px rgb(245, 245, 245);
-      margin-top: 25px;
-      a {
-        color: rgb(0, 162, 255);
-        text-decoration: none;
-        &:hover {
-          color: rgb(0, 162, 255);
-          border-bottom: solid 1px rgb(0, 162, 255);
-        }
-      }
+      margin: 20px 0;
       &_top {
+        margin-bottom: 5px;
         display: flex;
         justify-content: space-between;
+        &_text {
+          font-size: 14px;
+          font-weight: bold;
+        }
       }
     }
     &_purchase {
@@ -110,11 +132,19 @@ html {
       margin-top: 30px;
       &_btn {
         height: 45px;
-        background-color: grey;
+        background-color: #3CCACE;
         color: white;
         font-weight: bold;
         text-align: center;
         line-height: 45px;
+      }
+    }
+    a {
+      color: rgb(0, 162, 255);
+      text-decoration: none;
+      &:hover {
+        color: rgb(0, 162, 255);
+        border-bottom: solid 1px rgb(0, 162, 255);
       }
     }
   }

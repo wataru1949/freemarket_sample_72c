@@ -16,6 +16,7 @@ class User < ApplicationRecord
               message: "は全角カタカナのみで入力して下さい"
             }
 
-  has_one :address
-  has_many :items
+  has_one :address, dependent: :destroy
+  has_many :items, dependent: :destroy
+  has_one :card, dependent: :destroy
 end

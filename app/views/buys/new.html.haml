@@ -5,28 +5,46 @@
     = '購入内容の確認'
   .buy-content_item
     .buy-content_item_image
-      = ''
+      = image_tag @item.item_images.first.image.url, class: 'buy-content_item_image_main'
     .buy-content_item_detail
       .buy-content_item_detail_name
-        = 'product1'
+        = @item.name
       .buy-content_item_detail_price
-        = '¥10,000 (税込) 送料込み'
+        = "¥#{@item.price.to_s(:delimited)} (税込) 送料込み"
   .buy-content_info
     .buy-content_info_price
       .buy-content_info_price_total
         .buy-content_info_price_total_text
           = '支払い金額'
         .buy-content_info_price_total_number
-          = '¥10,000'
+          = "¥#{@item.price.to_s(:delimited)}"
       .buy-content_info_price_point
         .buy-content_info_price_point_square
         .buy-content_info_price_point_text
           = 'ポイントを使用(所持ポイント:P0)'
     .buy-content_info_pay
-      .buy-content_info_pay_method
-        = '支払い方法'
-      .buy-content_info_pay_register
-        = link_to '+ 登録してください', '#'
+      - if @card.present?
+        .buy-content_info_pay_top
+          .buy-content_info_pay_top_text
+            = '支払い方法'
+          .buy-content_info_pay_top_change
+            = link_to '変更する', new_card_path
+        .buy-content_info_pay_bottom
+          .buy-content_info_pay_bottom_card
+            = 'クレジットカード'
+          .buy-content_info_pay_bottom_number
+            = "************" + @card_information.last4
+          .buy-content_info_pay_bottom_deadline
+            = '有効期限 '
+            - exp_month = @card_information.exp_month.to_s
+            - exp_year = @card_information.exp_year.to_s.slice(2,3)
+            = exp_month + " / " + exp_year
+      - else
+        .buy-content_info_pay_top
+          .buy-content_info_pay_top_text
+            = '支払い方法'
+        .buy-content_info_pay_register
+          = link_to '+ 登録してください', new_card_path
     .buy-content_info_address
       .buy-content_info_address_top
         .buy-content_info_address_top_text
@@ -35,12 +53,20 @@
           = link_to '変更する', '#'
       .buy-content_info_address_bottom
         .buy-content_info_address_bottom_post
-          = '〒000-0000'
+          = current_user.address.postal_code
         .buy-content_info_address_bottom_address
-          = '住所'
+          = current_user.address.prefecture.name
+          = current_user.address.city
+          = current_user.address.street
+          = current_user.address.building
         .buy-content_info_address_bottom_user
-          = '氏名'
-    .buy-content_info_purchase
-      .buy-content_info_purchase_btn
-        = '購入する'
+          = current_user.lastname
+          = current_user.firstname
+    - if @card.present?
+      .buy-content_info_purchase
+        = link_to item_buys_path(@item.id), method: :post do
+          .buy-content_info_purchase_btn
+            = '購入する'
+    - else
+      = ''
 .buy-bottom

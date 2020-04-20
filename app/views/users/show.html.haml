@@ -11,9 +11,10 @@
       .mypage_profile_icon
         = image_tag "icon/member_photo_noimage_thumb.png", width: "100%"
         .mypage_profile_name
-          = "ユーザー１"
+          = current_user.nickname
         .mypage_profile_item-length
-          = "出品数 5"
+          = '出品数'
+          = current_user.items.length
     .news-content
       .news-content_message
         .news-content_message_text  

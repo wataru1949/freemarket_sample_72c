@@ -1,4 +1,22 @@
-= render 'share/top-icon'
+.regi-header2
+  .regi-header2_image
+    = link_to root_path do
+      = image_tag 'logo/logo.png', width: '100%'
+  .regi-header2_progress
+    .regi-header2_progress_text
+      .regi-header2_progress_text_first
+        = "会員情報入力"
+      .regi-header2_progress_text_second
+        = "住所登録"
+      .regi-header2_progress_text_complete
+        = "完了"
+    .regi-header2_progress_bar
+      .regi-header2_progress_bar_left
+      .regi-header2_progress_bar_right
+    .regi-header2_progress_circle
+      .regi-header2_progress_circle_first
+      .regi-header2_progress_circle_second
+      .regi-header2_progress_circle_complete
 
 .registration
   .registration_title

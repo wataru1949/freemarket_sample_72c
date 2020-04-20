@@ -1,4 +1,22 @@
-= render 'share/top-icon'
+.regi-header3
+  .regi-header3_image
+    = link_to root_path do
+      = image_tag 'logo/logo.png', width: '100%'
+  .regi-header3_progress
+    .regi-header3_progress_text
+      .regi-header3_progress_text_first
+        = "会員情報入力"
+      .regi-header3_progress_text_second
+        = "住所登録"
+      .regi-header3_progress_text_complete
+        = "完了"
+    .regi-header3_progress_bar
+      .regi-header3_progress_bar_left
+      .regi-header3_progress_bar_right
+    .regi-header3_progress_circle
+      .regi-header3_progress_circle_first
+      .regi-header3_progress_circle_second
+      .regi-header3_progress_circle_complete
 
 .create-account
   %h2 登録が完了しました
