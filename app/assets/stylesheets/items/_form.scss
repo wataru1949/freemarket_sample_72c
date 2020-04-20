@@ -85,8 +85,16 @@ html {
   background-color: white;
   margin: 0 auto 220px;
   max-width: 700px;
+  &_errors {
+    color: red;
+    padding: 20px 40px;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    text-align: center;
+  }
   .image-container {
     padding: 40px;
+    height: 325px;
     border-bottom: solid 1px rgb(235, 235, 235);
     &_box {
       &_message {
@@ -94,9 +102,6 @@ html {
         margin: 16px 0 15px;
         font-size: 14px;
         line-height: 1.4em;
-      }
-      .input{
-        display: none;
       }
       .image-uplord-field {
         align-content: center;
