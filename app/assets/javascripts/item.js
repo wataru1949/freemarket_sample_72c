@@ -1,12 +1,12 @@
 $(function(){
   //複数表示機能
   var dataBox = new DataTransfer();
-  var file_field = document.querySelector('input[type=file]')
+  // var file_field = document.querySelector('input[type=file]')
   $(document).on('change', '.img-man', function(){
     $.each(this.files, function(i, file){
       var fileReader = new FileReader();
       dataBox.items.add(file)
-      file_field.files = dataBox.files
+      // file_field.files = dataBox.files
       fileReader.readAsDataURL(file);
       fileReader.onloadend = function() {
         var num = $('.item-image-container__unit').length
