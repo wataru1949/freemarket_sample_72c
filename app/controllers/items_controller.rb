@@ -3,6 +3,8 @@ class ItemsController < ApplicationController
   before_action :set_parents
 
   def index
+    @items = Item.includes(:item_images).order('created_at DESC').limit(3)
+    @item_images = ItemImage.all
   end
 
   def new
@@ -44,6 +46,7 @@ class ItemsController < ApplicationController
   def destroy
     item = Item.find(params[:id])
     item.destroy
+    redirect_to root_path
   end
 
   # 親カテゴリーが選択された後に動くアクション

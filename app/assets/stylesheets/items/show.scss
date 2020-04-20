@@ -19,7 +19,7 @@
     margin: auto;
     background-color: white;
     width: 700px;
-    height: 1200px;
+    height: 1350px;
     padding: 24px 40px 40px;
     &_name {
       font-weight: bold;
@@ -91,7 +91,7 @@
         &_header {
           th {
             height:50px;
-            width: 140px;
+            width: 159px;
             border: solid 1px #dedede;
             background-color: #eee;
             text-align: center;
@@ -138,6 +138,40 @@
       cursor: not-allowed;
       text-align: center;
       line-height: 48px;
+    }
+    &_edit {
+      margin-top: 30px;
+      height: 48px;
+      width: 100%;
+      background-color: #3CCACE;
+      margin-bottom: 24px;
+      font-size: 17px;
+      border-radius: 4px;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+      line-height: 48px;
+      a {
+        text-decoration: none;
+        color: white;
+      }
+    }
+    &_destroy {
+      margin-top: 30px;
+      height: 48px;
+      width: 100%;
+      background-color: #3CCACE;
+      margin-bottom: 24px;
+      font-size: 17px;
+      border-radius: 4px;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+      line-height: 48px;
+      a {
+        text-decoration: none;
+        color: white;
+      }
     }
   }
   &_comment {

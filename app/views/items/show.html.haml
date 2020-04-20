@@ -12,9 +12,9 @@
       = @item.name
     .show-item_main_img
       .show-item_main_img_main
-        = image_tag @item.item_images.first.image.url, class: 'item-image'
+        = image_tag @item.item_images.first.image.url class: 'item-image'
       .show-item_main_img_sub
-        - @item.item_images.each do |i|
+        - @item.item_images.first(3).each do |i|
           .show-item_main_img_sub_content
             = image_tag i.image.url, class: 'item-image'
     .show-item_main_price
@@ -71,18 +71,18 @@
               %td
                 = @item.condition.name
             %tr
-              %td
+              %td 
                 = @item.shipping_cost.name
             %tr
-              %td
+              %td 
                 = @item.shipping_method.name
             %tr
-              %td
+              %td 
                 = @item.prefecture.name
             %tr
-              %td
+              %td 
                 = @item.shipping_date.name
-    - if @item.state == 1
+    - if @item.state == 1 && current_user.id != @item.user.id
       .show-item_main_buy
         = link_to new_item_buy_path(@item.id) do
           .show-item_main_buy_text
@@ -90,9 +90,17 @@
     - elsif @item.state == 2
       .show-item_main_sold-out
         = '売り切れました'
+    - elsif @item.state == 1 && current_user.id == @item.user.id
+      .show-item_main_edit
+        = link_to edit_item_path do
+          .show-item_main_edit_text
+            = '編集する'
+      .show-item_main_destroy
+        = link_to item_path, method: :delete do
+          .how-item_main_destroy_text
+            = '削除する'
     - else
-      = ''
-
+      = '対象が見つかりません'
   .show-item_comment
     .show-item_comment_form
       %label{for: "msg"}
@@ -103,6 +111,5 @@
     .show-item_comment_btn
       = link_to 'コメントする', "#", class: "cta-btn"
 
-=render "share/exhibit-btn"
 =render "share/download-banner"
 =render "share/footer"

@@ -2,24 +2,26 @@
   
 .main
   .main__top-banner
-    .main__top-banner__title-man
-      人生を変えるフリマアプリ
-    .main__top-banner__text-man
-      FURIMAはだれでもかんたんに出品・購入できる
-      %br
-      フリマアプリです
-    .main__top-banner__inner_icon
-      .main__top-banner__inner_icon__app
-        = image_tag "app-store-badge.svg", width: "170px"
-      .main__top-banner__inner_icon__google
-        = image_tag "google-play-badge.svg", width: "190px"
+    .main__top-banner__container
+      %h2.main__top-banner__container__title-man
+        %br
+        人生を変えるフリマアプリ
+      %p.main__top-banner__container__text-man
+        FURIMAはだれでもかんたんに出品・購入できる
+        %br
+        フリマアプリです
+      .main__top-banner__container__inner_icon
+        .main__top-banner__container__inner_icon__app
+          = image_tag "app-store-badge.svg", width: "170px"
+        .main__top-banner__container__inner_icon__google
+          = image_tag "google-play-badge.svg", width: "190px"
 
   .main__introduction
     .introduction__reason-for-chose
       FURIMAが選ばれる3つの理由
     .introduction__reason-lists
-      .lists
-        .lists__list
+      %ul.lists
+        %li.lists__list
           .lists__list--picture
             %p.number 1
             = image_tag 'pict/pict-reason-01.jpg', width: "100%"
@@ -28,7 +30,7 @@
             ですぐに出品
           .lists__list--discription
             スマホで入力するだけで簡単に出品できる！
-        .lists__list
+        %li.lists__list
           .lists__list--picture
             %p.number 2
             = image_tag 'pict/pict-reason-02.jpg', width: "100%"
@@ -37,7 +39,7 @@
             で使いやすい
           .lists__list--discription
             めんどくさい入力は必要なく、検索も購入もスムーズ！
-        .lists__list
+        %li.lists__list.lists__list-last
           .lists__list--picture
             %p.number 3
             = image_tag 'pict/pict-reason-03.jpg', width: "100%"
@@ -48,19 +50,20 @@
             最大3%でお得に出品&購入！
 
   .main__middle-banner
-    .main__middle-banner__title-man
-      会員数日本一位  
-    .main__middle-banner__text-man
-      FURIMAは、フリマアプリで最も人気。 
-      %br
-      出品・購入回数も業界最多です！
-      %br
-      ほしかったあの商品に出会えるかもしれません。
-    .main__middle-banner__inner_icon
-      .main__middle-banner__inner_icon__app
-        = image_tag "app-store-badge.svg", width: "170px"
-      .main__middle-banner__inner_icon__google
-        = image_tag "google-play-badge.svg", width: "190px"
+    .main__middle-banner__container
+      .main__middle-banner__container__title-man
+        会員数日本一位  
+      .main__middle-banner__container__text-man
+        FURIMAは、フリマアプリで最も人気。 
+        %br
+        出品・購入回数も業界最多です！
+        %br
+        ほしかったあの商品に出会えるかもしれません。
+      .main__middle-banner__container__inner_icon
+        .main__middle-banner__container__inner_icon__app
+          = image_tag "app-store-badge.svg", width: "170px"
+        .main__middle-banner__container__inner_icon__google
+          = image_tag "google-play-badge.svg", width: "190px"
 
   .main__feature
     .main__feature__title
@@ -95,79 +98,46 @@
       .main__pic-up__category__sub-title
         新規投稿商品
       .main__pic-up__content
-        .item
-          .item__image  
-          .item__body
-            .item__body__name
-              ギガ
-            .item__body__middle
-              .item__body__middle__price
-                100円
-              .item__body__middle__favorite
-            .item__body__fee
-              (税込)
-        .item
-          .item__image  
-          .item__body
-            .item__body__name
-              ギガ
-            .item__body__middle
-              .item__body__middle__price
-                100円
-              .item__body__middle__favorite
-            .item__body__fee
-              (税込)
-        .item
-          .item__image  
-          .item__body
-            .item__body__name
-              ギガ
-            .item__body__middle
-              .item__body__middle__price
-                100円
-              .item__body__middle__favorite
-            .item__body__fee
-              (税込)
-
+        - @items.each do |item|
+          .item
+            .item__image
+              -item.item_images.each_with_index do |image, index|
+                - if index == 0
+                  = link_to item_path(item.id) do
+                    = image_tag image.image.url
+                - else
+            .item__body
+              .item__body__name
+                = item.name
+              .item__body__middle
+                .item__body__middle__price
+                  = item.price
+                .item__body__middle__favorite
+              .item__body__fee
+                (税込)
     .main__pic-up__brand
       .main__pic-up__brand__title
         ピックアップブランド
       .main__pic-up__brand__sub-title
         アーカイバ
       .main__pic-up__content
-        .item
-          .item__image  
-          .item__body
-            .item__body__name
-              うん
-            .item__body__middle
-              .item__body__middle__price
-                100円
-              .item__body__middle__favorite
-            .item__body__fee
-              (税込)
-        .item
-          .item__image  
-          .item__body
-            .item__body__name
-              君は
-            .item__body__middle
-              .item__body__middle__price
-                100円
-              .item__body__middle__favorite
-            .item__body__fee
-              (税込)
-        .item
-          .item__image  
-          .item__body
-            .item__body__name
-              君も
-            .item__body__middle
-              .item__body__middle__price
-                100円
-              .item__body__middle__favorite
-            .item__body__fee
-              (税込)
+        - @items.each do |item|
+          .item
+            .item__image
+              -item.item_images.each_with_index do |image, index|
+                - if index == 0
+                  = link_to item_path(item.id) do
+                    = image_tag image.image.url
+                - else
+            .item__body
+              .item__body__name
+                = item.name
+              .item__body__middle
+                .item__body__middle__price
+                  = item.price
+                .item__body__middle__favorite
+              .item__body__fee
+                (税込)
 
   = render 'share/download-banner'
 
