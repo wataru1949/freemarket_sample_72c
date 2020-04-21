@@ -115,6 +115,10 @@
                 .item__body__middle__favorite
               .item__body__fee
                 (税込)
+            - if item.state == 2
+              .item__sold-out__area
+              .item__sold-out__text
+                = 'SOLD'
     .main__pic-up__brand
       .main__pic-up__brand__title
         ピックアップブランド
@@ -138,6 +142,10 @@
                 .item__body__middle__favorite
               .item__body__fee
                 (税込)
+            - if item.state == 2
+              .item__sold-out__area
+              .item__sold-out__text
+                = 'SOLD'
 
   = render 'share/download-banner'
 

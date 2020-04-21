@@ -59,8 +59,11 @@
     display: flex;
     position: relative;
     .logo-image {
-      width: 40px;
-      height: 40px;
+      width: 32px;
+      height: 35px;
+      position: absolute;
+      top: 25px;
+      left: 25px;
     }
     i2 {
       float: right;
@@ -70,7 +73,7 @@
     }
     &_text {
       font-size: 14px;
-      padding: 0 20px;
+      padding-left: 75px;
       line-height: 85px;
       word-wrap: break-word;
     }

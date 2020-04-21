@@ -270,6 +270,7 @@
       display: flex;
       justify-content: space-around;
       .item {
+        position: relative;
         &__image {
         }
         img {
@@ -284,6 +285,27 @@
           padding: 0 10px;
           &__fee {
             font-size: 10px;
+          }
+        }
+        &__sold-out {
+          &__area {
+            position: absolute;
+            top: 0;
+            width: 220px;
+            height: 160px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 90px 90px 0 0;
+            border-color: #3CCACE transparent transparent transparent;
+          }
+          &__text {
+          position: absolute;
+          top: 15px;
+          color: white;
+          font-size: 20px;
+          font-weight: bold;
+          transform: rotate(-45deg);
           }
         }
       }
