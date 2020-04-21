@@ -3,7 +3,7 @@
 # DB設計
 
 ## ER図
-![image](https://user-images.githubusercontent.com/61734650/79534565-de958c00-80b5-11ea-966f-e175661c6bf3.png)
+![72c_ERchart0417](https://user-images.githubusercontent.com/61734650/79839322-5255d280-83ef-11ea-821e-edff83f6dc52.jpeg)
 
 ## usersテーブル
 |Column|Type|Options|
