@@ -82,25 +82,28 @@
             %tr
               %td 
                 = @item.shipping_date.name
-    - if @item.state == 1 && current_user.id != @item.user.id
-      .show-item_main_buy
-        = link_to new_item_buy_path(@item.id) do
-          .show-item_main_buy_text
-            = '購入画面に進む'
-    - elsif @item.state == 2
-      .show-item_main_sold-out
-        = '売り切れました'
-    - elsif @item.state == 1 && current_user.id == @item.user.id
-      .show-item_main_edit
-        = link_to edit_item_path do
-          .show-item_main_edit_text
-            = '編集する'
-      .show-item_main_destroy
-        = link_to item_path, method: :delete do
-          .how-item_main_destroy_text
-            = '削除する'
-    - else
-      = '対象が見つかりません'
+      - if @item.state == 1 && user_signed_in? && current_user.id != @item.user.id
+        .show-item_main_buy
+          = link_to new_item_buy_path(@item.id) do
+            .show-item_main_buy_text
+              = '購入画面に進む'
+      - elsif @item.state == 2
+        .show-item_main_sold-out
+          = '売り切れました'
+      - elsif @item.state == 1 && user_signed_in? && current_user.id == @item.user.id
+        .show-item_main_edit
+          = link_to edit_item_path do
+            .show-item_main_edit_text
+              = '編集する'
+        .show-item_main_destroy
+          = link_to item_path, method: :delete do
+            .how-item_main_destroy_text
+              = '削除する'
+      - else
+        .show-item_main_buy
+          = link_to new_user_session_path do
+            .show-item_main_buy_text
+              = '購入画面に進む'
   .show-item_comment
     .show-item_comment_form
       %label{for: "msg"}
