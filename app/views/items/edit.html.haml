@@ -19,14 +19,14 @@
         .image-container_box_alart-10
           ※ 1枚目は必須です
       .image-container_unit-man
-        .item-image-container__unit.preview-0
-          = f.fields_for :item_images do |i|
-            .image-container__unit--guide
-              %label{for: "image-label-0"}
-                = i.file_field :image, class: 'img-man', id:"image-label-0",type: 'file'
-                .have-image
-                  %i.fas.fa-camera
-
+        - if @item.persisted?
+          - @item.item_images.each_with_index do |image, i|
+            .item-image-container__unit
+              .item-image-container__unit__image
+                = image_tag image.image.url, data: { index: i }
+                .image-option__list--tag 削除
+        -# - @item.item_images.length.upto(9) do |i|  //10枚未満の場合の投稿用
+        -#   %input{name: "item[item_images_attributes][#{i}][image]", id: "item_item_images_attributes_#{i}_image", class:"hidden-field", type:"file"}
     .explain-container
       .explain-container_name-box
         .form-title
