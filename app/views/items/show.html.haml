@@ -14,7 +14,7 @@
       .show-item_main_img_main
         = image_tag @item.item_images.first.image.url class: 'item-image'
       .show-item_main_img_sub
-        - @item.item_images.first(3).each do |i|
+        - @item.item_images.each do |i|
           .show-item_main_img_sub_content
             = image_tag i.image.url, class: 'item-image'
     .show-item_main_price
