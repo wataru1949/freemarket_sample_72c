@@ -56,7 +56,7 @@ input[type=number]::-webkit-outer-spin-button {
   border: solid 1px rgb(215, 215, 215);
   border-radius: 4px
 }
-#grandchild_category {
+#grand_child_category {
   height: 48px;
   width: 100%;
   padding: 0 16px;
@@ -98,9 +98,13 @@ input[type=number]::-webkit-outer-spin-button {
     border-radius: 2px;
     text-align: center;
   }
+  .notifications{
+    color: red;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+  }
   .image-container {
     padding: 40px;
-    height: 325px;
     border-bottom: solid 1px rgb(235, 235, 235);
     &_box {
       &_message {
