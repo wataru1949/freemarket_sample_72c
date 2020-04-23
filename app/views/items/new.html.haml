@@ -18,14 +18,24 @@
           最大10枚までアップロードできます
         .image-container_box_alart-10
           ※ 1枚目は必須です
-      .image-container_unit-man
-        .item-image-container__unit.preview-0
-          = f.fields_for :item_images do |i|
-            .image-container__unit--guide
-              %label{for: "image-label-0"}
-                = i.file_field :image, class: 'img-man', id:"image-label-0",type: 'file'
-                .have-image
-                  %i.fas.fa-camera
+      -# .image-container_unit-man
+      -#   .image-container_unit-man_preview
+      #image-box
+        #previews
+          - if @item.persisted?
+            - @item.item_images.each_with_index do |image, i|
+              = image_tag image.image.url, data: { index: i }, width: "118", height: '150'
+        = f.fields_for :item_images do |image|
+          .js-file_group{"data-index" => "#{image.index}"}
+            = image.file_field :image, class: 'js-file'
+            %br/
+            %span.js-remove 削除
+          - if @item.persisted?
+            = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+        - if @item.persisted?
+          .js-file_group{"data-index" => "#{@item.item_images.count}"}
+            = file_field_tag :picture, name: "item[images_attributes][#{@item.item_images.count}][image]", class: 'js-file'
+            .js-remove 削除
 
     .explain-container
       .explain-container_name-box
@@ -55,7 +65,7 @@
             必須
         .form-select-category
           .form-select-category__option
-            = f.collection_select :category_id, @category_parent, :id, :name, {prompt: "選択してください"}, class: 'form-select__option-box', id: 'parent_category'
+            = f.collection_select :category_id, @category_parent, :id, :name, {include_blank: "選択してください"}, class: 'form-select__option-box', id: 'parent_category'
       .box_form
         .form-title
           %span.box-form-explanaion

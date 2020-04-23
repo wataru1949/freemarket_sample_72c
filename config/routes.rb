@@ -14,7 +14,6 @@ Rails.application.routes.draw do
     get 'card', on: :member
     get 'logout', on: :member
   end
-
   resources :items do
     resources :buys, only: [:new, :create] do
       collection do
@@ -25,7 +24,15 @@ Rails.application.routes.draw do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
     end
+    # 編集画面でのカテゴリー表示
+    member do
+      get 'get_category_children', to: 'items#get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', to: 'items#get_category_grandchildren', defaults: { format: 'json' }
+    end
   end
+  # バリデーション後のカテゴリー取得
+  get 'get_category_children', to: 'items#get_category_children'
+  get 'get_category_grandchildren', to: 'items#get_category_grandchildren'
 
   resources :cards, only: [:index, :new, :create, :destroy]
 

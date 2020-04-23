@@ -1,5 +1,9 @@
 = render 'share/top-icon'
+
 .exhibit-form
+  .notifications
+    - flash.each do |key, value|
+      = content_tag(:div, value, class: key)
   = form_with model: @item, local: true do |f|
     - if @item.errors.any?
       .exhibit-form_errors
@@ -7,6 +11,7 @@
         %ul
           - @item.errors.full_messages.each do |message|
             %li= message
+            
     .image-container
       .image-container_box
         .form-title
@@ -18,15 +23,25 @@
           最大10枚までアップロードできます
         .image-container_box_alart-10
           ※ 1枚目は必須です
-      .image-container_unit-man
+      -# .image-container_unit-man
+      -#   .image-container_unit-man_preview
+      #image-box
+        #previews
+          - if @item.persisted?
+            - @item.item_images.each_with_index do |image, i|
+              = image_tag image.image.url, data: { index: i }, width: "118", height: '150'
+        = f.fields_for :item_images do |image|
+          .js-file_group{"data-index" => "#{image.index}"}
+            = image.file_field :image, class: 'js-file'
+            %br/
+            %span.js-remove 削除
+          - if @item.persisted?
+            = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
         - if @item.persisted?
-          - @item.item_images.each_with_index do |image, i|
-            .item-image-container__unit
-              .item-image-container__unit__image
-                = image_tag image.image.url, data: { index: i }
-                .image-option__list--tag 削除
-        -# - @item.item_images.length.upto(9) do |i|  //10枚未満の場合の投稿用
-        -#   %input{name: "item[item_images_attributes][#{i}][image]", id: "item_item_images_attributes_#{i}_image", class:"hidden-field", type:"file"}
+          .js-file_group{"data-index" => "#{@item.item_images.count}"}
+            = file_field_tag :picture, name: "item[images_attributes][#{@item.item_images.count}][image]", class: 'js-file'
+            .js-remove 削除
+
     .explain-container
       .explain-container_name-box
         .form-title
@@ -48,14 +63,21 @@
     .detail-container
       %p.container-title 商品の詳細
       .box_form
-        .form-title
-          %span.box-form-explanaion
-            カテゴリー
-          %span.indispensable
-            必須
-        .form-select-category
-          .form-select-category__option
-            = f.collection_select :category_id, @category_parent, :id, :name, {prompt: "選択してください"}, class: 'form-select__option-box', id: 'parent_category'
+        = f.label :category_id , class: 'wrapper__label category-wrapper-label', id: "wrapper__label--category" do
+          .form-title
+            %span.box-form-explanaion
+              カテゴリー
+            %span.indispensable
+              必須
+          .form-select-category
+            .form-select-category__option
+              = f.collection_select(:category_id, Category.where(ancestry: nil), :id, :name, {prompt: "---", selected: @item.category.parent.parent_id}, {id: "parent_category"})
+            .form-select-category#children_wrapper
+              .form-select-category__option
+                = f.collection_select(:category_id, @item.category.parent.parent.children, :id, :name, {prompt: "---", selected: @item.category.parent_id}, {id: "child_category"})
+            .form-select-category#grandchildren_wrapper
+              .form-select-category__option
+                = f.collection_select(:category_id, @item.category.parent.children, :id, :name, {prompt: "---", selected: @item.category.id}, {id: "grand_child_category"})
       .box_form
         .form-title
           %span.box-form-explanaion
@@ -130,3 +152,149 @@
         = f.submit class: "price-box-btn_exhibit-btn" do
           nil
         = link_to "もどる", :back, class: "price-box-btn_back-btn"
+
+
+
+
+
+-# = render 'share/top-icon'
+-# .exhibit-form
+-#   = form_with model: @item, local: true do |f|
+-#     - if @item.errors.any?
+-#       .exhibit-form_errors
+-#         %h2= "#{@item.errors.full_messages.count}件のエラーが発生しました。"
+-#         %ul
+-#           - @item.errors.full_messages.each do |message|
+-#             %li= message
+-#     .image-container
+-#       .image-container_box
+-#         .form-title
+-#           %span.box-form-explanaion
+-#             商品画像
+-#           %span.indispensable
+-#             必須
+-#         %p.image-container_box_message
+-#           最大10枚までアップロードできます
+-#         .image-container_box_alart-10
+-#           ※ 1枚目は必須です
+-#       .image-container_unit-man
+-#         - if @item.persisted?
+-#           - @item.item_images.each_with_index do |image, i|
+-#             - unless image.image.url == nil
+-#               = f.hidden_field :id, value: image.object_id
+-#               = f.check_box :_destroy, data: { index: i }, class: "check-box-#{i}"
+-#               .item-image-container__unit
+-#                 .item-image-container__unit__image
+-#                   = image_tag image.image.url, data: { index: i }
+-#                   .image-option__list--tag 削除
+                  
+-#         %div{class: "item-image-container__unit preview-#{@item.item_images.length - 1}"}
+-#           .image-container__unit--guide
+-#             .have-image
+-#               %i.fas.fa-camera
+-#             = f.fields_for :item_images do |i|
+-#               = i.file_field :image, class: 'img-man', id:"image-label-0",type: 'file'
+              
+-#     .explain-container
+-#       .explain-container_name-box
+-#         .form-title
+-#           %span.box-form-explanaion
+-#             商品名
+-#           %span.indispensable
+-#             必須
+-#         = f.text_field :name, placeholder: "40文字まで", maxlength:"40", class: 'exhibit-form-field'
+-#       .explain-container_text-box
+-#         .form-title
+-#           %span.box-form-explanaion
+-#             商品の説明
+-#           %span.indispensable
+-#             必須
+-#         = f.text_area :detail, maxlength:"1000", class: 'exhibit-form-detail', placeholder: '商品の説明 (最大 1000文字) (色、素材、重さ、定価、注意点など) 例) 2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。'
+-#         .explain-container_text-box_info
+-#           0/1000
+-# ​
+-#     .detail-container
+-#       %p.container-title 商品の詳細
+-#       .box_form
+-#         .form-title
+-#           %span.box-form-explanaion
+-#             カテゴリー
+-#           %span.indispensable
+-#             必須
+-#         .form-select-category
+-#           .form-select-category__option
+-#             = f.collection_select :category_id, @category_parent, :id, :name, {prompt: "選択してください"}, class: 'form-select__option-box', id: 'parent_category'
+-#       .box_form
+-#         .form-title
+-#           %span.box-form-explanaion
+-#             ブランド
+-#           %span.indispensable_optional
+-#             任意
+-#         = f.text_field :brand, placeholder: "例) シャネル", maxlength:"40", class: 'exhibit-form-field'
+-#       .box_form
+-#         .form-title
+-#           %span.box-form-explanaion
+-#             商品の状態
+-#           %span.indispensable
+-#             必須
+-#         = f.collection_select :condition_id, Condition.all, :id, :name, {prompt:"選択してください"}, {class: 'exhibit-form-field'}
+-# ​
+-#     .shipping-container
+-#       %p.container-title 配送について
+-#       .box_form
+-#         .form-title
+-#           %span.box-form-explanaion
+-#             配送料の負担
+-#           %span.indispensable
+-#             必須
+-#         = f.collection_select :shipping_cost_id, ShippingCost.all, :id, :name, {prompt:"選択してください"}, {class: 'exhibit-form-field'}
+-#       .box_form  
+-#         .form-title
+-#           %span.box-form-explanaion
+-#             配送の方法
+-#           %span.indispensable
+-#             必須
+-#         = f.collection_select :shipping_method_id, ShippingMethod.all, :id, :name, {prompt:"選択してください"}, {class: 'exhibit-form-field'}
+-#       .box_form
+-#         .form-title
+-#           %span.box-form-explanaion
+-#             発送元の地域
+-#           %span.indispensable
+-#             必須
+-#         = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt:"選択してください"}, {class: 'exhibit-form-field'}
+-#       .box_form
+-#         .form-title
+-#           %span.box-form-explanaion
+-#             発送までの日数
+-#           %span.indispensable
+-#             必須
+-#         = f.collection_select :shipping_date_id, ShippingDate.all, :id, :name, {prompt:"選択してください"}, {class: 'exhibit-form-field'}
+-# ​
+-#     .price-container
+-#       %p.container-title 価格 (¥300~9,999,999)
+-#       .calculation-box
+-#         .selling-price-line
+-#           .selling-form-title
+-#             .form-title
+-#               %span.box-form-explanaion
+-#                 販売価格
+-#               %span.indispensable
+-#                 必須
+-#           = f.number_field :price, placeholder: "0", min: 0, max: 9999999, class: 'exhibit-form_price' do
+-#             %span.mark
+-#               ¥
+-#             .exhibit-form_right
+-#         .commission-line
+-#           .commission-line_left
+-#             販売手数料 (10%)
+-#           .commission-line_right
+-#             ー
+-#         .profit-line
+-#           .profit-line_left
+-#             販売利益
+-#           .profit-line_right
+-#             ー
+-#       .price-box-btn
+-#         = f.submit class: "price-box-btn_exhibit-btn" do
+-#           nil
+-#         = link_to "もどる", :back, class: "price-box-btn_back-btn"

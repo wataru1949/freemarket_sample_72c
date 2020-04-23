@@ -1,60 +1,62 @@
-$(function(){
-  //複数表示機能
-  var dataBox = new DataTransfer();
-  // var file_field = document.querySelector('input[type=file]')
-  $(document).on('change', '.img-man', function(){
-    $.each(this.files, function(i, file){
-      var fileReader = new FileReader();
-      dataBox.items.add(file)
-      // file_field.files = dataBox.files
-      fileReader.readAsDataURL(file);
-      fileReader.onloadend = function() {
-        var num = $('.item-image-container__unit').length
-        var src = fileReader.result
-        var html =  `<div class="item-image-container__unit__image">
-                        <img src="${src}">
-                      <div class="image-option__list--tag btn-${num}">削除</div>
-                    </div>`
-        
-        var field = `<div class="item-image-container__unit preview-${num}">
-                      <div class="image-container__unit--guide">
-                        <label for="image-label-${num}">
-                          <input class="img-man" id="image-label-${num}" type="file" name="item[item_images_attributes][${num}][image]">
-                          <div class="have-image">
-                            <i class="fas fa-camera"></i>
-                          </div>
-                        </label>
-                      </div>
-                    </div>`
-        $(html).appendTo(`.preview-${num - 1}`)
-        
-        if (num < 10 ) { 
-          $(field).appendTo('.image-container_unit-man')
-        }
-        return html
-      };
-    });
-  });
-  //削除
-  $(document).on("click", ".image-option__list--tag", function(){
-    var num = $('.item-image-container__unit').length
-    var field_2 = `<div class="item-image-container__unit preview-0">
-                    <div class="image-container__unit--guide">
-                      <label for="image-label">
-                        <input class="img-man" id="image-label-0" type="file">
-                        <div class="have-image">
-                          <i class="fas fa-camera"></i>
-                        </div>
-                      </label>
-                    </div>
-                  </div>`
-    $(this).parent().parent().remove();
-    $(".item-image-container__unit").removeClass(`preview-${num - 1}`)
-    $(".item-image-container__unit").addClass(`preview-${num - 2}`)
-    if(num == 0) { 
-      $(field_2).appendTo('.image-container_unit-man')
+$(function() {
+  // 画像用のinputを生成する関数
+  const buildFileField = (num)=> {
+    const html = `<div data-index="${num}" class="js-file_group">
+                    <input class="js-file" type="file"
+                    name="item[item_images_attributes][${num}][image]"
+                    id="item_item_images_attributes_${num}_image"><br>
+                    <div class="js-remove">delete</div>
+                  </div>`;
+    return html;
+  }
+  // プレビュー用のimgタグを生成する関数
+  const buildImg = (index, url)=> {
+    const html = `<img data-index="${index}" src="${url}" width="100px" height="100px">`;
+    return html;
+  }
+
+  // file_fieldのnameに動的なindexをつける為の配列
+  let fileIndex = [1,2,3,4,5,6,7,8,9,10];
+  // 既に使われているindexを除外
+  lastIndex = $('.js-file_group:last').data('index');
+  fileIndex.splice(0, lastIndex);
+
+  $('.hidden-destroy').hide();
+
+  $('#image-box').on('change', '.js-file', function(e) {
+    const targetIndex = $(this).parent().data('index');
+    // ファイルのブラウザ上でのURLを取得する
+    const file = e.target.files[0];
+    const blobUrl = window.URL.createObjectURL(file);
+
+    // 該当indexを持つimgがあれば取得して変数imgに入れる(画像変更の処理)
+    if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
+      img.setAttribute('src', blobUrl);
+    } else {  // 新規画像追加の処理
+      $('#previews').append(buildImg(targetIndex, blobUrl));
+      // fileIndexの先頭の数字を使ってinputを作る
+      $('#image-box').append(buildFileField(fileIndex[0]));
+      fileIndex.shift();
+      // 末尾の数に1足した数を追加する
+      fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
     }
-  })
+  });
+
+  $('#image-box').on('click', '.js-remove', function() {
+    const targetIndex = $(this).parent().data('index');
+    // 該当indexを振られているチェックボックスを取得する
+    const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
+    // もしチェックボックスが存在すればチェックを入れる
+    if (hiddenCheck) hiddenCheck.prop('checked', true);
+
+    $(this).parent().remove();
+    $(`img[data-index="${targetIndex}"]`).remove();
+
+    // 画像入力欄が0個にならないようにしておく
+    if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
+  });
+
+
   //文字カウント
   $('.exhibit-form-detail').keyup(function(){
     var count = $(this).val().length;
