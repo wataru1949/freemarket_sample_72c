@@ -8,6 +8,11 @@ class Item < ApplicationRecord
   validates :price, numericality: { less_than_or_equal_to: 9999999 }
   validates :state, numericality: { greater_than_or_equal_to: 0 }
   validates :state, numericality: { less_than_or_equal_to: 3 }
+  validate :item_images_number
+
+  def  item_images_number
+    errors.add(:item_images, "は10枚までです") if item_images.size > 10
+  end
 
   belongs_to_active_hash :prefecture
   belongs_to_active_hash :condition

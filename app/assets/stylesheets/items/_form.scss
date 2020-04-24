@@ -127,6 +127,10 @@ input[type=number]::-webkit-outer-spin-button {
       // flex-direction: row;
       // flex-wrap: wrap;
       #previews {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        background-color: rgb(245, 245, 245);
         // align-content: center;
         // align-items: center;
         img {
