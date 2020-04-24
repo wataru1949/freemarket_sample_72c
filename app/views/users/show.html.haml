@@ -8,11 +8,12 @@
     .mypage_profile
       .mypage_profile_image
         = image_tag "mypage profile.png", width: "100%"
-      .mypage_profile_icon
-        = image_tag "icon/member_photo_noimage_thumb.png", width: "100%"
-        .mypage_profile_name
+      .mypage_profile_content
+        .mypage_profile_content_icon
+          = image_tag "icon/member_photo_noimage_thumb.png", width: "100%"
+        .mypage_profile_content_name
           = current_user.nickname
-        .mypage_profile_item-length
+        .mypage_profile_content_item-length
           = '出品数'
           = current_user.items.length
     .news-content
