@@ -21,6 +21,8 @@
       -# .image-container_unit-man
       -#   .image-container_unit-man_preview
       #image-box
+        %label{:for => 'hide'} 画像:
+
         #previews
           - if @item.persisted?
             - @item.item_images.each_with_index do |image, i|
@@ -34,7 +36,7 @@
             = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
         - if @item.persisted?
           .js-file_group{"data-index" => "#{@item.item_images.count}"}
-            = file_field_tag :picture, name: "item[images_attributes][#{@item.item_images.count}][image]", class: 'js-file'
+            = file_field_tag :image, name: "item[item_images_attributes][#{@item.item_images.count}][image]", class: 'js-file'
             .js-remove 削除
 
     .explain-container
