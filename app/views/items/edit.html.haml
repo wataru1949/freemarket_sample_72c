@@ -38,9 +38,10 @@
           - if @item.persisted?
             = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
         - if @item.persisted?
-          .js-file_group{"data-index" => "#{@item.item_images.count}"}
-            = file_field_tag :image, name: "item[item_images_attributes][#{@item.item_images.count}][image]", class: 'js-file'
-            .js-remove 削除
+          - if @item.item_images.count < 10
+            .js-file_group{"data-index" => "#{@item.item_images.count}"}
+              = file_field_tag :image, name: "item[item_images_attributes][#{@item.item_images.count}][image]", class: 'js-file'
+              .js-remove 削除
 
     .explain-container
       .explain-container_name-box
